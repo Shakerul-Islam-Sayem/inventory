@@ -18,7 +18,7 @@
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
                 <div class="dropdown">
                     <a class="nav-link" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa-regular fa-message"></i>
+                        <i class="fa-regular fa-message fa-xl"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                       <li><a class="dropdown-item" href="#">John Kabir</a></li>
