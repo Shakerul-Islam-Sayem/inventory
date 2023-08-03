@@ -24,10 +24,10 @@ Route::get('/admin', function () {
 });
 Route::middleware('guest')->prefix('admin')->group(function () {
     Route::get('/',[AdminController::class, 'index'])->name('admin.dashboard');
-    
 });
 
-Route::get('/products', [AdminController::class, 'products']);
+Route::get('/products/create', [AdminController::class, 'products']);
+Route::get('/products', [AdminController::class, 'products_show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

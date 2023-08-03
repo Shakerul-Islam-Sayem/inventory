@@ -15,7 +15,11 @@ class AdminController extends Controller
     }
     public function products()
     {
-        return view('admin.products');
+        return view('admin.products.create');
+    }
+    public function products_show()
+    {
+        return view('admin.products.index');
     }
 
     /**
