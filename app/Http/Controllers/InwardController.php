@@ -13,7 +13,7 @@ class InwardController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.inward');
     }
 
     /**
