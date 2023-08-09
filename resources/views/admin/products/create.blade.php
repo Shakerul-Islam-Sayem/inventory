@@ -47,16 +47,6 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="product-category" class="form-label">Product Subcategory</label>
-                            <select class="form-control" id="product-category" name="product-category">
-                                <option value="" disabled selected>Select a Subcategory</option>
-                                <option value="category1">Subcategory 1</option>
-                                <option value="category2">Subcategory 2</option>
-                                <option value="category3">Subcategory 3</option>
-                            </select>
-                        </div>
-
-                        <div class="mb-3">
                             <label for="supplier" class="form-label">Supplier</label>
                             <select class="form-select" aria-label="Default select example" id="supplier" name="supplier" required>
                                 <option value="" disabled selected>Select a category</option>
@@ -94,7 +84,6 @@
                                         frame.src = "";
                                     }
                                 }
-                            
                                 function clearImage() {
                                     document.getElementById('formFile').value = null;
                                     frame.src = "";
@@ -102,7 +91,6 @@
                                     event.preventDefault();
                                 }
                             </script>
-                            
                         </div>
 
                         <button type="submit" class="btn btn-lg btn-primary">Add Product</button>

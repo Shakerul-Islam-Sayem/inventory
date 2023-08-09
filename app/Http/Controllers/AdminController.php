@@ -12,6 +12,7 @@ class AdminController extends Controller
     public function index()
     {
         return view('admin.dashboard');
+        
     }
     public function products()
     {
@@ -27,7 +28,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.sample2');
     }
 
     /**

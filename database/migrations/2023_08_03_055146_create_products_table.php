@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("category_id")->unsigned();
             $table->string('product_title');
             $table->text('product_description');
             $table->string('product_sku')->unique();
@@ -24,9 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('supplier_id');
             $table->string('product_image')->nullable();
             $table->timestamps();
-
             $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('subcategory_id')->references('id')->on('subcategories');
             $table->foreign('supplier_id')->references('id')->on('suppliers');
         });
     }

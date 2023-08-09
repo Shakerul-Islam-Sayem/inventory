@@ -6,46 +6,79 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <div class="container mt-5">
-                    <h2>Product Inward</h2>
-                    <form id="productInwardForm">
-                        <div class="mb-3">
-                            <label for="title" class="form-label">Product Title</label>
-                            <input type="text" class="form-control" id="title">
+                <h2>Product Inward</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="productId" class="form-label">Product ID</label>
+                        <input type="text" class="form-control" id="productId">
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoryId" class="form-label">Category ID</label>
+                        <input type="text" class="form-control" id="categoryId">
+                    </div>
+                    <div class="mb-3">
+                        <label for="supplierId" class="form-label">Supplier ID</label>
+                        <input type="text" class="form-control" id="supplierId">
+                    </div>
+                    <div class="mb-3">
+                        <label for="quantity" class="form-label">Quantity</label>
+                        <input type="number" class="form-control" id="quantity">
+                    </div>
+                    <div class="mb-3">
+                        <label for="purchasePrice" class="form-label">Purchase Price</label>
+                        <input type="number" class="form-control" id="purchasePrice">
+                    </div>
+                    <div class="mb-3">
+                        <label for="salePrice" class="form-label">Sale Price</label>
+                        <input type="number" class="form-control" id="salePrice">
+                    </div>
+                    <div class="mb-3">
+                        <label for="invoiceNumber" class="form-label">Invoice Number</label>
+                        <input type="text" class="form-control" id="invoiceNumber">
+                    </div>
+                    <div class="mb-3">
+                        <label for="dateReceived" class="form-label">Date Received</label>
+                        <input type="date" class="form-control" id="dateReceived">
+                    </div>
+                    <div class="mb-3">
+                        <div class="col-md-6">
+                            <div class="mb-3 row item-align-center">
+                                <label for="invoiceImage" class="form-label">Invoice Image</label>
+                                <div class="col-9">
+                                    <input class="form-control dark" type="file" accept="image/png, image/jpeg" multiple id="formFile"
+                                        onchange="preview()">
+                                </div>
+                                <div class="col-3 text-end" id="removeButtonContainer" style="display: none;">
+                                    <button onclick="clearImage()" style="border: 1px solid rgb(160, 179, 221)"
+                                        class="btn btn-outline ms-1">Remove</button>
+                                </div>
+                            </div>
+                            <img id="frame" src="" class="rounded shadow-lg img-fluid" />
                         </div>
-                        <!-- Add other input fields (purchase price, selling price, stock available, id, sku, invoice upload, category, supplier) -->
 
-                        <div class="mb-3">
-                            <label for="purchasePrice" class="form-label">Purchase Price</label>
-                            <input type="number" class="form-control" id="purchasePrice">
-                        </div>
-
-                        <!-- Add other input fields (selling price, stock available, id, sku, invoice upload, category, supplier) -->
-
-                        <div class="mb-3">
-                            <label for="sellingPrice" class="form-label">Selling Price</label>
-                            <input type="number" class="form-control" id="sellingPrice">
-                        </div>
-
-                        <!-- Add other input fields (stock available, id, sku, invoice upload, category, supplier) -->
-
-                        <div class="mb-3">
-                            <label for="stockAvailable" class="form-label">Stock Available</label>
-                            <input type="number" class="form-control" id="stockAvailable">
-                        </div>
-
-                        <!-- Add other input fields (id, sku, invoice upload, category, supplier) -->
-
-                        <!-- Profit Margin Calculation -->
-                        <div class="mb-3">
-                            <label for="profitMargin" class="form-label">Profit Margin (%)</label>
-                            <input type="number" class="form-control" id="profitMargin" readonly>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-
+                        <script>
+                            function preview() {
+                                var fileInput = event.target;
+                                var file = fileInput.files[0];
+                                if (file) {
+                                    document.getElementById('removeButtonContainer').style.display = "block";
+                                    frame.src = URL.createObjectURL(file);
+                                } else {
+                                    document.getElementById('removeButtonContainer').style.display = "none";
+                                    frame.src = "";
+                                }
+                            }
+                            function clearImage() {
+                                document.getElementById('formFile').value = null;
+                                frame.src = "";
+                                document.getElementById('removeButtonContainer').style.display = "none";
+                                event.preventDefault();
+                            }
+                        </script>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+{{-- 
                 <div class="container mt-5">
                     <h2>Summation Calculator</h2>
                     <div class="row">
@@ -87,7 +120,8 @@
                             </div>
                             <label class="control-label col-sm-1" for="Percentage">Percentage:</label>
                             <div class="col-sm-2">
-                                <input type="text" name="rate" id="rate2" class="rate" onblur="getAmount()">
+                                <input type="text" name="rate" id="rate2" class="rate"
+                                    onblur="getAmount()">
                             </div>
                             <label class="control-label col-sm-1" for="Amount">Amount:</label>
                             <div class="col-sm-2">
@@ -107,7 +141,7 @@
                         </p>
 
                     </form>
-                </div>
+                </div> --}}
                 <!-- Bootstrap JS Bundle -->
 
 

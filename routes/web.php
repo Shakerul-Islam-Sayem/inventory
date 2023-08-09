@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\InwardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,8 +29,11 @@ Route::middleware('guest')->prefix('admin')->group(function () {
 });
 
 Route::get('/products/create', [AdminController::class, 'products']);
-Route::get('/products', [AdminController::class, 'products_show']);
-Route::get('/products/inward', [InwardController::class, 'index']);
+Route::get('/admin/dashboard2', [AdminController::class, 'create'])->name('create');
+Route::get('/products', [AdminController::class, 'products_show'])->name('products');
+Route::get('/products/inward', [InwardController::class, 'create'])->name('admin.inward');
+Route::get('/supplier/index', [SupplierController::class, 'index'])->name('admin.supplier.index');
+Route::get('/supplier/create', [SupplierController::class, 'create'])->name('admin.supplier.create');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
