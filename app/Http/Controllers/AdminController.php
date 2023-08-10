@@ -14,21 +14,13 @@ class AdminController extends Controller
         return view('admin.dashboard');
         
     }
-    public function products()
-    {
-        return view('admin.products.create');
-    }
-    public function products_show()
-    {
-        return view('admin.products.index');
-    }
-
+    
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('admin.sample2');
+        //
     }
 
     /**

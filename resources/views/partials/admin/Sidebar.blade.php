@@ -1,7 +1,7 @@
 <aside class="left-sidebar sidebar js-sidebar">
     <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-            <a href="./index.html" class="text-nowrap logo-img">
+            <a href="{{ route('index') }}" class="text-nowrap logo-img">
                 <img src="{{ asset('assets/images/logos/inventory.png') }}" width="180" alt="" />
             </a>
             <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -15,7 +15,7 @@
                     <span class="hide-menu">Home</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{route("create")}}" aria-expanded="false">
+                    <a class="sidebar-link" href="{{ route('index') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-layout-dashboard"></i>
                         </span>
@@ -27,24 +27,25 @@
                     <span class="hide-menu">INVENTORY</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="./ui-buttons.html" class="nav-link dropdown-toggle"
-                        href="#navbarVerticalMenuDashboards" role="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarVerticalMenuDashboards" aria-expanded="true"
-                        aria-controls="navbarVerticalMenuDashboards" style="backgraound-color: rgb(212, 83, 83);">
+                    <a class="sidebar-link" href="javascript()" class="nav-link dropdown-toggle"
+                        href="#forproducts" role="button" data-bs-toggle="collapse"
+                        data-bs-target="#forproducts" aria-expanded="true"
+                        aria-controls="forproducts">
                         <span>
                             <i class="ti ti-article"></i>
                         </span>
                         <span class="hide-menu">Product</span>
                     </a>
-                    <div id="navbarVerticalMenuDashboards" class="nav-collapse collapse"
-                        data-bs-parent="#navbarVerticalMenu" hs-parent-area="#navbarVerticalMenu" style="margin-left: 1rem; backgraound-color: rgb(206, 33, 33);">
-                        <a class="sidebar-link" href="{{route("admin.inward")}}" aria-expanded="false">
+                    <div id="forproducts" class="nav-collapse collapse"
+                        data-bs-parent="#products" hs-parent-area="#products"
+                        style="margin-left: 1rem;">
+                        <a class="sidebar-link" href="{{ route('admin.inward') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>
                             <span class="hide-menu">1. Inward</span>
                         </a>
-                        <a class="sidebar-link" href="{{route("admin.inward")}}" aria-expanded="false">
+                        <a class="sidebar-link" href="{{ route('admin.inward') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>
@@ -65,27 +66,65 @@
                     <span class="hide-menu">PRODUCTS</span>
                 </li>
                 <li class="sidebar-item submenu">
-                    <a class="sidebar-link" href="{{route("products")}}" aria-expanded="false">
+                    <a class="sidebar-link" href="{{ route('products-list') }}" class="nav-link dropdown-toggle"
+                        href="#forproductslist" role="button" data-bs-toggle="collapse"
+                        data-bs-target="#forproductslist" aria-expanded="true"
+                        aria-controls="forproductslist">
                         <span>
-                            <i class="ti ti-cards"></i>
+                            <i class="ti ti-article"></i>
                         </span>
                         <span class="hide-menu">Product List</span>
                     </a>
+                    <div id="forproductslist" class="nav-collapse collapse"
+                        data-bs-parent="#productslist" hs-parent-area="#productslist"
+                        style="margin-left: 1rem;">
+                        <a class="sidebar-link" href="{{ route('products-list') }}" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-alert-circle"></i>
+                            </span>
+                            <span class="hide-menu">1. Products List</span>
+                        </a>
+                        <a class="sidebar-link" href="{{ route('products-create') }}" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-alert-circle"></i>
+                            </span>
+                            <span class="hide-menu">2. Products Create</span>
+                        </a>
+                    </div>
                 </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+                <li class="sidebar-item submenu">
+                    <a class="sidebar-link" href="{{ route('category.index') }}" class="nav-link dropdown-toggle"
+                        href="#forcategory" role="button" data-bs-toggle="collapse"
+                        data-bs-target="#forcategory" aria-expanded="true"
+                        aria-controls="forcategory">
                         <span>
-                            <i class="ti ti-file-description"></i>
+                            <i class="ti ti-article"></i>
                         </span>
                         <span class="hide-menu">Category</span>
                     </a>
+                    <div id="forcategory" class="nav-collapse collapse"
+                        data-bs-parent="#category" hs-parent-area="#category"
+                        style="margin-left: 1rem;">
+                        <a class="sidebar-link" href="{{ route('category.index') }}" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-alert-circle"></i>
+                            </span>
+                            <span class="hide-menu">1. Category List</span>
+                        </a>
+                        <a class="sidebar-link" href="{{ route('category.create') }}" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-alert-circle"></i>
+                            </span>
+                            <span class="hide-menu">2. Category Create</span>
+                        </a>
+                    </div>
                 </li>
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">SUPPLIER</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{route("admin.supplier.index")}}" aria-expanded="false">
+                    <a class="sidebar-link" href="{{ route('supplier.index') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-typography"></i>
                         </span>
@@ -93,7 +132,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{route("admin.supplier.create")}}" aria-expanded="false">
+                    <a class="sidebar-link" href="{{ route('supplier.create') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-typography"></i>
                         </span>
@@ -105,7 +144,7 @@
                     <span class="hide-menu">AUTH</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{route("login")}}" aria-expanded="false">
+                    <a class="sidebar-link" href="{{ route('login') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-login"></i>
                         </span>
@@ -113,7 +152,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="{{route("register")}}" aria-expanded="false">
+                    <a class="sidebar-link" href="{{ route('register') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-user-plus"></i>
                         </span>

@@ -26,14 +26,17 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div id="chart"><div class="card">
-                                        <h5 class="card-header">Featured</h5>
-                                        <div class="card-body">
-                                          <h5 class="card-title">Special title treatment</h5>
-                                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                                    <div id="chart">
+                                        <div class="card">
+                                            <h5 class="card-header">Featured</h5>
+                                            <div class="card-body">
+                                                <h5 class="card-title">Special title treatment</h5>
+                                                <p class="card-text">With supporting text below as a natural lead-in to
+                                                    additional content.</p>
+                                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            </div>
                                         </div>
-                                      </div></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -429,8 +432,7 @@
                     </div> --}}
 
                     <div class="py-6 px-6 text-center">
-                        <p class="mb-0 fs-4">Design and Developed by <a
-                                href="sayem.isdb-pwad.com">Sayem</a></p>
+                        <p class="mb-0 fs-4">Design and Developed by <a href="sayem.isdb-pwad.com">Sayem</a></p>
                     </div>
                 </div>
             </div>

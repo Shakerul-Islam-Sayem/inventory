@@ -1,9 +1,7 @@
       <!--  Header Start -->
       <header class="app-header">
           <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="sidebar-toggle js-sidebar-toggle">
-                <i class="fas fa-2x fa-bars align-self-center"></i>
-            </a>        
+                 
             <ul class="navbar-nav">
                 <a id="toggle_btn" class="sidebar-toggle js-sidebar-toggle">
                     <i class="hamburger align-self-center"></i>

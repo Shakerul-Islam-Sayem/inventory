@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Supplier;
 use App\Http\Requests\StoreSupplierRequest;
 use App\Http\Requests\UpdateSupplierRequest;
+use Illuminate\Http\Request;
 
 class SupplierController extends Controller
 {
@@ -13,7 +14,8 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        return view('admin.supplier.index');
+        $suppliers = Supplier::all();
+        return view('admin.supplier.index', compact('suppliers'));
     }
 
     /**
@@ -27,9 +29,12 @@ class SupplierController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSupplierRequest $request)
+    // public function store(StoreSupplierRequest $request)
+    public function store(Request $request)
     {
-        //
+        dd($request->all());
+        // Supplier::create($request->all());
+        // return redirect()->route('supplier.index') ->with("success", "Supplier Created.");
     }
 
     /**

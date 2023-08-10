@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\InwardController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
@@ -28,12 +30,12 @@ Route::middleware('guest')->prefix('admin')->group(function () {
     Route::get('/',[AdminController::class, 'index'])->name('admin.dashboard');
 });
 
-Route::get('/products/create', [AdminController::class, 'products']);
-Route::get('/admin/dashboard2', [AdminController::class, 'create'])->name('create');
-Route::get('/products', [AdminController::class, 'products_show'])->name('products');
+Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('index');
+Route::get('/products', [ProductsController::class, 'products_show'])->name('products-list');
+Route::get('/products/create', [ProductsController::class, 'products'])->name('products-create');
+Route::resource('category', CategoryController::class);
+Route::resource('supplier', SupplierController::class);
 Route::get('/products/inward', [InwardController::class, 'create'])->name('admin.inward');
-Route::get('/supplier/index', [SupplierController::class, 'index'])->name('admin.supplier.index');
-Route::get('/supplier/create', [SupplierController::class, 'create'])->name('admin.supplier.create');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

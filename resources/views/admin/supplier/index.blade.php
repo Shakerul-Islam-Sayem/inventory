@@ -17,25 +17,29 @@
                             <th scope="col">Contact Phone</th>
                             <th scope="col">Address</th>
                             <th scope="col">Tax ID/VAT Number</th>
-                            <th scope="col">Payment Method</th>
                             <th scope="col">BIN Number</th>
                             <th scope="col">Notes</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @forelse ($suppliers as $k => $supplier)
                         <tr>
-                            <th scope="row">1</th>
-                            <td scope="col">All Time</td>
-                            <td scope="col">Minhaz</td>
-                            <td scope="col">Tanvir</td>
-                            <td scope="col">example@gmail.com</td>
-                            <td scope="col">880 1612 155632</td>
-                            <td scope="col">Mirpur - 12</td>
-                            <td scope="col">12‑3456789‑01</td>
-                            <td scope="col">Bank Transer</td>
-                            <td scope="col">624000 – 626999</td>
-                            <td scope="col">Notes</td>
+                            <th scope="row"class="d-none d-xl-table-cell">{{ $k + 1 }}</th>
+                            <td scope="col">{{ $supplier->title }}</td>
+                            <td scope="col">{{ $supplier->owner_name }}</td>
+                            <td scope="col">{{ $supplier->contact_person }}</td>
+                            <td scope="col">{{ $supplier->email }}</td>
+                            <td scope="col">{{ $supplier->phone }}</td>
+                            <td scope="col">{{ $supplier->address }}</td>
+                            <td scope="col">{{ $supplier->tax }}</td>
+                            <td scope="col">{{ $supplier->bin_number }}</td>
+                            <td scope="col">{{ $supplier->note }}</td>
+                            <td scope="col">{{ $supplier->title }}</td>
                         </tr>
+                            
+                        @empty
+                            
+                        @endforelse
                     </tbody>
                 </table>
             </div>
