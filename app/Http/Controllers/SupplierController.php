@@ -32,9 +32,9 @@ class SupplierController extends Controller
     // public function store(StoreSupplierRequest $request)
     public function store(Request $request)
     {
-        dd($request->all());
-        // Supplier::create($request->all());
-        // return redirect()->route('supplier.index') ->with("success", "Supplier Created.");
+        // dd($request->all());s
+        Supplier::create($request->all());
+        return redirect()->route('supplier.index') ->with("success", "Supplier Created.");
     }
 
     /**

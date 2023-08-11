@@ -43,13 +43,13 @@
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>
-                            <span class="hide-menu">1. Inward</span>
+                            <span class="hide-menu">Inward</span>
                         </a>
                         <a class="sidebar-link" href="{{ route('admin.inward') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>
-                            <span class="hide-menu">2. Outward</span>
+                            <span class="hide-menu">Outward</span>
                         </a>
                     </div>
                 </li>
@@ -82,13 +82,13 @@
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>
-                            <span class="hide-menu">1. Products List</span>
+                            <span class="hide-menu">Product List</span>
                         </a>
                         <a class="sidebar-link" href="{{ route('products-create') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>
-                            <span class="hide-menu">2. Products Create</span>
+                            <span class="hide-menu">Product Create</span>
                         </a>
                     </div>
                 </li>
@@ -109,13 +109,13 @@
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>
-                            <span class="hide-menu">1. Category List</span>
+                            <span class="hide-menu">Category List</span>
                         </a>
                         <a class="sidebar-link" href="{{ route('category.create') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>
-                            <span class="hide-menu">2. Category Create</span>
+                            <span class="hide-menu">Category Create</span>
                         </a>
                     </div>
                 </li>

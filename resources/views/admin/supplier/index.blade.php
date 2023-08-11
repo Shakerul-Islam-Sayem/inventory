@@ -25,7 +25,7 @@
                         @forelse ($suppliers as $k => $supplier)
                         <tr>
                             <th scope="row"class="d-none d-xl-table-cell">{{ $k + 1 }}</th>
-                            <td scope="col">{{ $supplier->title }}</td>
+                            <td scope="col">{{ $supplier->supplier_title }}</td>
                             <td scope="col">{{ $supplier->owner_name }}</td>
                             <td scope="col">{{ $supplier->contact_person }}</td>
                             <td scope="col">{{ $supplier->email }}</td>
@@ -34,7 +34,6 @@
                             <td scope="col">{{ $supplier->tax }}</td>
                             <td scope="col">{{ $supplier->bin_number }}</td>
                             <td scope="col">{{ $supplier->note }}</td>
-                            <td scope="col">{{ $supplier->title }}</td>
                         </tr>
                             
                         @empty
