@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
     {{-- <link rel="stylesheet" href="{{ asset('assets/css/app.min.css') }}" /> --}}
     {{-- <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}" /> --}}
+    {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     <link rel="stylesheet" href="{{ asset('assets/fontawesome/css/all.min.css') }}" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet"
@@ -72,17 +73,12 @@
     <script src="{{ asset('assets/js/sidebarmenu.js') }}"></script>
     <script src="{{ asset('assets/js/app.min.js') }}"></script>
     <script src="{{ asset('assets/js/app.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.js') }}"></script>
     <script src="{{ asset('assets/libs/simplebar/dist/simplebar.js') }}"></script>
     <script src="{{ asset('assets/fontawesome/js/all.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxy/1.6.1/scripts/jquery.ajaxy.min.js"></script>
-    <script src="jquery-3.2.1.min.js"></script>
     <script src="bootstrap.min.js"></script>
     <script src="script.js"></script>
-    @yield('script')
     <script>
         qa = function() {
             var e = document.getElementsByClassName("js-sidebar")[0],
@@ -96,8 +92,6 @@
                         });
                 });
         };
-
-
         function getAmount() {
             var value = $('#value').val();
             var percent = $('#rate').val();
@@ -125,10 +119,9 @@
                 sum_amount += +$(this).val();
                 $('#total_amount').val(sum_amount);
             })
-
-
         }
     </script>
+    @yield('script')
 </body>
 
 </html>

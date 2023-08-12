@@ -46,56 +46,41 @@
                                     <th scope="col">Purchase Price</th>
                                     <th scope="col">Salling Price</th>
                                     <th scope="col">Quantity</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="d-none d-xl-table-cell">ghfh</td>
-                                    <td>fghfgh</td>
-                                    <td>fghfg</td>
-                                    <td>dfrtngdg</td>
-                                    <td>fdgdfg </td>
-                                </tr>
-                                <tr>
-                                    <td class="d-none d-xl-table-cell">ghfh</td>
-                                    <td>fghfgh</td>
-                                    <td>fghfg</td>
-                                    <td>dfrtngdg</td>
-                                    <td>fdgdfg </td>
-                                </tr>
-                                <tr>
-                                    <td class="d-none d-xl-table-cell">ghfh</td>
-                                    <td>fghfgh</td>
-                                    <td>fghfg</td>
-                                    <td>dfrtngdg</td>
-                                    <td>fdgdfg </td>
-                                </tr>
-                                <tr>
-                                    <td class="d-none d-xl-table-cell">ghfh</td>
-                                    <td>fghfgh</td>
-                                    <td>fghfg</td>
-                                    <td>dfrtngdg</td>
-                                    <td>fdgdfg </td>
+                            <tbody id="optionSetContainer">
+                                <tr id="optionSet">
+                                    <td id="serial-number" class="d-none d-xl-table-cell">1</td>
+                                    <td><input class="form-control" type="text" name="Product Title" id="product_title"
+                                            placeholder="Product Title">
+                                    </td>
+                                    <td><input class="form-control" type="text" name="Product Title" id="PurchasePrice"
+                                            placeholder="Purchase Price">
+                                    </td>
+                                    <td><input class="form-control" type="text" name="Product Title" id="sallingPrice"
+                                            placeholder="Salling Price">
+                                    </td>
+                                    <td><input class="form-control" type="text" name="Product Title" id="quantity"
+                                            placeholder="Quantity">
+                                    </td>
+                                    <td class="d-flex">
+                                        <button type="button" id="add"
+                                            class="form-control btn btn-dark me-1">+Add</button>
+                                        <button type="button" class="remove btn btn-dark">Remove</button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
-                        <form action="action.php">
-
-                            <div class="input-group control-group after-add-more">
-                                <input type="text" name="addmore[]" class="form-control" placeholder="Enter Name Here">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-success add-more" type="button"><i
-                                            class="glyphicon glyphicon-plus"></i> Add</button>
-                                </div>
-                            </div>
-
-                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     </div>
+@endsection
+
+@section('script')
     <script>
         function preview() {
             frame.src = URL.createObjectURL(event.target.files[0]);
@@ -114,17 +99,28 @@
             frame.src = "";
         }
 
+        // $(document).on("click", "#new", function() {
+        //     var option = $("#option");
+        //     var newOption = option.clone(true);
+        //     option.parent().append(newOption);
+        // });
+    </script>
+
+    <script>
         $(document).ready(function() {
-
-            $(".add-more").click(function() {
-                var html = $(".copy").html();
-                $(".after-add-more").after(html);
+            // Add new option set
+            $("#add").click(function() {
+                var optionSet = $("#optionSet");
+                var newOptionSet = optionSet.clone(true);
+                newOptionSet.find('input').val('');
+                newOptionSet.append('<button type="button" class="remove">Remove</button>');
+                optionSet.parent().append(newOptionSet);
             });
 
-            $("body").on("click", ".remove", function() {
-                $(this).parents(".control-group").remove();
+            // Remove option set
+            $(document).on("click", ".remove", function() {
+                $(this).closest("#optionSet").remove();
             });
-
         });
     </script>
 @endsection
