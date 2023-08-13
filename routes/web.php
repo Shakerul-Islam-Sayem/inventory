@@ -8,7 +8,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,11 +35,14 @@ Route::get('/products', [ProductsController::class, 'products_show'])->name('pro
 Route::get('/products/create', [ProductsController::class, 'products'])->name('products-create');
 Route::resource('category', CategoryController::class);
 Route::resource('supplier', SupplierController::class);
+Route::resource('roles', RoleController::class);
+
 Route::get('/products/inward', [InwardController::class, 'create'])->name('admin.inward');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
