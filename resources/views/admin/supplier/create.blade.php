@@ -9,10 +9,6 @@
                 <form action="{{ route('supplier.store') }}" method="post">
                     @csrf
                     <h2>Supllier Create</h2>
-                    {{-- <div class="mb-3">
-                        <label for="supplierId" hidden class="form-label">Supplier ID</label>
-                        <input type="text" hidden class="form-control" id="supplierId" name="supplierId">
-                    </div> --}}
                     <div class="mb-3">
                         <label for="supplierName" class="form-label">Supplier Title</label>
                         <input type="text" class="form-control" id="supplierTitle" name="supplier_title">

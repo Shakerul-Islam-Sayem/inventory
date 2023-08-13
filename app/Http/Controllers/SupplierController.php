@@ -42,7 +42,7 @@ class SupplierController extends Controller
      */
     public function show(Supplier $supplier)
     {
-        //
+        return view('admin.supplier.show', compact('supplier'));
     }
 
     /**
@@ -50,7 +50,7 @@ class SupplierController extends Controller
      */
     public function edit(Supplier $supplier)
     {
-        //
+        return view('admin.supplier.edit', compact('supplier'));
     }
 
     /**
@@ -58,7 +58,8 @@ class SupplierController extends Controller
      */
     public function update(UpdateSupplierRequest $request, Supplier $supplier)
     {
-        //
+        $supplier->update($request->all());
+        return redirect()->route('supplier.index')->with('success', 'Supplier updated successfully');
     }
 
     /**
@@ -66,6 +67,8 @@ class SupplierController extends Controller
      */
     public function destroy(Supplier $supplier)
     {
-        //
+        // dd($request);
+        $supplier->delete();
+        return redirect()->route('supplier.index')->with('success', 'supplier deleted successfully');
     }
 }

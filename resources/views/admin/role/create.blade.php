@@ -8,7 +8,7 @@
             <div class="card-body">
                 <div class="container mt-5">
                     <h2>Create User Role</h2>
-                    <form action="" method="POST" id="createUserRoleForm">
+                    <form action="{{route('roles.store')}}" method="POST" id="createUserRoleForm" onsubmit="handleFormSubmission(event)">
                         @csrf
                         <div class="mb-3">
                             <label for="roleName" class="form-label">Role Title</label>
@@ -23,12 +23,11 @@
                         <div class="mb-3">
                             <label for="roleStatus" class="form-label">Role Status</label>
                             <select class="form-select form-select-lg" name="status" id="rolestatus">
-                                <option selected disabled>Select one</option>
-                                <option value="1">Active</option>
+                                <option selected value="1">Active</option>
                                 <option value="0">Deactive</option>
                             </select>
                         </div>
-                        <button type="button" class="btn btn-primary" id="createUserRoleBtn">Create Role</button>
+                        <button type="submit" class="btn btn-primary" id="createUserRoleBtn">Create Role</button>
                     </form>
                 </div>
             </div>
@@ -36,4 +35,32 @@
     </div>
 @endsection
 @section('script')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
+<script>
+    function deleteRole(e, t) {
+      e.preventDefault();
+      let c = confirm("Are you sure?");
+      if (!c) return;
+      t.closest('form').submit();
+    }
+  </script>
+
+  <script>
+  function handleFormSubmission(event) {
+      event.preventDefault(); // Prevent default form submission
+  
+      // Simulate successful form submission
+      setTimeout(function() {
+          Swal.fire({
+              title: 'Role Created',
+              text: 'The role has been created successfully.',
+              icon: 'success'
+          });
+      }, 1000); // Delay to simulate server response time
+  
+      // Clear form inputs (optional)
+      document.getElementById('createUserRoleForm').reset();
+  }
+  </script>
+  
 @endsection
