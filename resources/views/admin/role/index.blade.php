@@ -6,12 +6,12 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <div class="container mt-5">
-                    <div class="mb-3 d-flex justify-content-between">
+                <div class="container rounded">
+                    <div class=" card-header ps-0 bg-white mb-3 d-flex justify-content-between">
                         <h2 class="">User Roles</h2>
-                        <a href="{{ route('roles.create') }}" class="btn btn-info ">+ Add New Role</a>
+                        <a href="{{ route('roles.create') }}" class="btn btn-info "> <i class="fas fa-plus"></i> Add New Role</a>
                     </div>
-                    <table class="table table-striped">
+                    <table class="table table-striped table-hover table-responsive">
                         <thead>
                             <tr class="table-dark">
                                 <th>SL</th>
@@ -45,7 +45,7 @@
                                             @csrf
                                             @method('delete')
                                             <a href="#" class="btn btn-outline-danger"
-                                                onclick="showConfirmation(this)">
+                                                onclick="showConfirmation(event, this)">
                                                 <i class="fas fa-trash-alt"></i>
                                             </a>
                                         </form>
@@ -65,7 +65,8 @@
 @endsection
 @section('script')
     <script>
-        function showConfirmation(button) {
+        function showConfirmation(e, t) {
+            e.preventDefault();
             Swal.fire({
                 title: 'Are you sure?',
                 text: "This action is irreversible!",
@@ -77,12 +78,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     setTimeout(function() {
-                        Swal.fire({
-                            title: 'Deleted!',
-                            text: 'The record has been deleted.',
-                            icon: 'success'
-                        });
-                        button.closest('tr').remove();
+                        t.closest('form').submit();
                     }, 1);
                 }
             });

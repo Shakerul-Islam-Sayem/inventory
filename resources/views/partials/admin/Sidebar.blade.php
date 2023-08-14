@@ -64,7 +64,7 @@
                     <span class="hide-menu">PRODUCTS</span>
                 </li>
                 <li class="sidebar-item submenu">
-                    <a class="sidebar-link" href="{{ route('products-list') }}" class="nav-link dropdown-toggle"
+                    <a class="sidebar-link" href="{{ route('product.index') }}" class="nav-link dropdown-toggle"
                         href="#forproductslist" role="button" data-bs-toggle="collapse"
                         data-bs-target="#forproductslist" aria-expanded="true" aria-controls="forproductslist">
                         <span>
@@ -74,13 +74,13 @@
                     </a>
                     <div id="forproductslist" class="nav-collapse collapse" data-bs-parent="#productslist"
                         hs-parent-area="#productslist" style="margin-left: 1rem;">
-                        <a class="sidebar-link" href="{{ route('products-list') }}" aria-expanded="false">
+                        <a class="sidebar-link" href="{{ route('product.index') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>
                             <span class="hide-menu">Product List</span>
                         </a>
-                        <a class="sidebar-link" href="{{ route('products-create') }}" aria-expanded="false">
+                        <a class="sidebar-link" href="{{ route('product.create') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>

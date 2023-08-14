@@ -31,11 +31,12 @@ Route::middleware('guest')->prefix('admin')->group(function () {
 });
 
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('index');
-Route::get('/products', [ProductsController::class, 'products_show'])->name('products-list');
-Route::get('/products/create', [ProductsController::class, 'products'])->name('products-create');
+// Route::get('/products', [ProductsController::class, 'products_show'])->name('products-list');
+// Route::get('/products/create', [ProductsController::class, 'products'])->name('products-create');
 Route::resource('category', CategoryController::class);
 Route::resource('supplier', SupplierController::class);
 Route::resource('roles', RoleController::class);
+Route::resource('product',ProductsController::class);
 
 Route::get('/products/inward', [InwardController::class, 'create'])->name('admin.inward');
 

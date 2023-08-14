@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Products;
+use App\Models\Product;
+use App\Models\Category;
+use App\Models\Image;
 use App\Http\Requests\StoreProductsRequest;
 use App\Http\Requests\UpdateProductsRequest;
+use App\Models\Products;
+use Termwind\Components\Dd;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as ImageI;
 
 class ProductsController extends Controller
 {
@@ -13,15 +19,13 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.products.index');
     }
     public function products()
     {
-        return view('admin.products.create');
     }
     public function products_show()
     {
-        return view('admin.products.index');
     }
 
     /**
@@ -29,7 +33,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.products.create');
     }
 
     /**
@@ -37,8 +41,38 @@ class ProductsController extends Controller
      */
     public function store(StoreProductsRequest $request)
     {
-        //
+        $product = Products::create($request->all());
+        if ($product) {
+            //    dd($request);
+            if ($request->hasFile('images')) {
+                $files = $request->file('images');
+
+                foreach ($files as $file) {
+                    // Save or process each file as needed
+                    $loc = $file->store('uploads/products');
+                    $i = new Image();
+                    $i->name = $loc;
+                    $product->images()->save($i);
+                    //echo Storage::path($loc) . "<br>";
+                    //resize the images and store with same name. max resolution can be 1024px
+                    //watermark
+                    //image intervention
+                    $image = ImageI::make(Storage::path($loc))->resize(800, null, function ($constraint) {
+                        $constraint->aspectRatio();
+                        $constraint->upsize();
+                    })->insert(storage_path("app/public") . '/logo.png', 'center')->save(Storage::path($loc));
+                    //watermark end
+                }
+                return redirect()->route("product.create")->with("success", "Product saved successfully. ID is " . $product->id);
+            } else {
+                echo "image not available";
+            }
+            // 
+        } else {
+            echo "add failed";
+        }
     }
+
 
     /**
      * Display the specified resource.

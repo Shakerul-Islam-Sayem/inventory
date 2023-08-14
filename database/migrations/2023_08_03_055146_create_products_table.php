@@ -15,16 +15,15 @@ return new class extends Migration
             $table->id();
             $table->string('product_title');
             $table->text('product_description');
-            $table->string('product_sku')->unique();
-            $table->decimal('purchase_price', 8, 2);
-            $table->decimal('sale_price', 8, 2);
+            $table->string('product_sku');
+            $table->decimal('purchase_price', 10, 2);
+            $table->decimal('sale_price', 10, 2);
             $table->unsignedBigInteger('category_id');
-            $table->unsignedBigInteger('subcategory_id');
             $table->unsignedBigInteger('supplier_id');
-            $table->string('product_image')->nullable();
+            $table->json('product_image')->nullable();
             $table->timestamps();
-            $table->foreign('category_id')->references('id')->on('categories');
-            $table->foreign('supplier_id')->references('id')->on('suppliers');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade');
         });
     }
 

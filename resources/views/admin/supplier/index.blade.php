@@ -44,7 +44,8 @@
                                             class="fa-solid fa-eye"></i></a>
                                     <a href="{{ route('supplier.edit', $supplier->id) }}" class="btn btn-primary me-1"><i
                                             class="fa-regular fa-pen-to-square"></i></a>
-                                    <form action="{{ route('supplier.destroy', $supplier->id) }}">
+                                    <form action="{{ route('supplier.destroy', $supplier->id) }}" method="POST">
+                                        @csrf
                                         @method('delete')
                                         <a href="#" onclick="showConfirmation(this)" class="btn btn-danger "><i
                                                 class="fa-regular fa-trash-can"></i></a>
