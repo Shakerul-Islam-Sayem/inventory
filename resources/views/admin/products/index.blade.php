@@ -21,17 +21,23 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @forelse ($products as $k => $product)
                         <tr>
-                            <th scope="row">1</th>
-                            <th scope="col">Cotton Polo - Navy Blue</th>
-                            <th scope="col">The Polo t-shirt is made with Double PK fabric which features premium 80% combed compact organic cotton. </th>
-                            <th scope="col">Double PK</th>
-                            <th scope="col">850.00</th>
-                            <th scope="col">900.00</th>
-                            <th scope="col">T-shirt</th>
-                            <th scope="col">FabriLife</th>
+                            <th scope="row">{{ $k + 1}}</th>
+                            <th scope="col">{{ $product->product_title }}</th>
+                            <th scope="col">{{ $product->product_description }}</th>
+                            <th scope="col">{{ $product->product_sku }}</th>
+                            <th scope="col">{{ $product->purchase_price }}</th>
+                            <th scope="col">{{ $product->sale_price }}</th>
+                            <th scope="col">{{ $product->category_id }}</th>
+                            <th scope="col">{{ $product->supplier_id }}</th>
                             <th scope="col">Product Image</th>
                         </tr>
+                        @empty
+                            <tr>
+                                <td colspan="6" class="text-center ">{{ __('Data Not Found') }}</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

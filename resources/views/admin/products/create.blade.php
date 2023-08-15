@@ -8,7 +8,7 @@
             <div class="card-body">
                 <div class="container mt-1">
                     <h2>Add Product</h2>
-                    <form action="{{ route('product.store') }}" method="POST">
+                    <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="product-title" class="form-label">Product Title</label>
@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="mb-3">
-                            <label for="sale-price" class="form-label">Sale Price</label>
+                            <label for="sale-price" class="form-label">Salling Price</label>
                             <input type="number" class="form-control" id="sale-price" name="sale_price" step="0.01">
                         </div>
 
@@ -41,9 +41,9 @@
                             <label for="product-category" class="form-label">Product Category</label>
                             <select class="form-control" id="product-category" name="category_id">
                                 <option value="" disabled selected>Select a category</option>
-                                <option value="1">Category 1</option>
-                                <option value="2">Category 2</option>
-                                <option value="3">Category 3</option>
+                                <option value="Category 1">Category 1</option>
+                                <option value="Category 2">Category 2</option>
+                                <option value="Category 3">Category 3</option>
                             </select>
                         </div>
 
@@ -51,9 +51,9 @@
                             <label for="supplier" class="form-label">Supplier</label>
                             <select class="form-select" aria-label="Default select example" id="supplier" name="supplier_id">
                                 <option value="" disabled selected>Select a category</option>
-                                <option value="1">Supplier 1</option>
-                                <option value="2">Supplier 2</option>
-                                <option value="3">Supplier 3</option>
+                                <option value="Supplier 1">Supplier 1</option>
+                                <option value="Supplier 2">Supplier 2</option>
+                                <option value="Supplier 3">Supplier 3</option>
                             </select>
                         </div>
 
@@ -93,7 +93,6 @@
                 frame.src = "";
             }
         }
-
         function clearImage() {
             document.getElementById('formFile').value = null;
             frame.src = "";

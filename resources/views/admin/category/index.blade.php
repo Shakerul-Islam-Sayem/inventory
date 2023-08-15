@@ -48,8 +48,6 @@
                             </tr>
                         @empty
                         @endforelse
-
-                        </tr>
                     </tbody>
                 </table>
             </div>

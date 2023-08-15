@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\InwardController;
+use App\Http\Controllers\OutwardController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
@@ -33,17 +34,17 @@ Route::middleware('guest')->prefix('admin')->group(function () {
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('index');
 // Route::get('/products', [ProductsController::class, 'products_show'])->name('products-list');
 // Route::get('/products/create', [ProductsController::class, 'products'])->name('products-create');
+// Route::get('/products/inward', [InwardController::class, 'create'])->name('admin.inward');
 Route::resource('category', CategoryController::class);
 Route::resource('supplier', SupplierController::class);
 Route::resource('roles', RoleController::class);
 Route::resource('product',ProductsController::class);
-
-Route::get('/products/inward', [InwardController::class, 'create'])->name('admin.inward');
+Route::resource('inward',InwardController::class);
+Route::resource('outward',OutwardController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

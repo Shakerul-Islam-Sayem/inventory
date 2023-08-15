@@ -7,8 +7,7 @@
         <div class="card">
             <div class="card-body">
                 <h2 class="text-center mb-3">Product Inward</h2>
-                <div class="card">
-                    <div class="card-title row">
+                    <div class=" row">
                         <div class="col-3">
                             <div class="form-floating">
                                 <input type="text" class="form-control border-dark" id="floatingInput" autoComplete="on"
@@ -38,15 +37,15 @@
                     </div>
 
                     <div class="">
-                        <table class="table">
-                            <thead class="table" style="background-color: rgb(231, 231, 231);">
+                        <table class="table table-responsive table-striped">
+                            <thead class="table" style="background-color: rgb(230, 228, 253);">
                                 <tr>
                                     <th scope="col">SL</th>
                                     <th scope="col">Product Title</th>
                                     <th scope="col">Purchase Price</th>
                                     <th scope="col">Salling Price</th>
                                     <th scope="col">Quantity</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col" class="text-center justify-content-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody id="optionSetContainer">
@@ -66,14 +65,13 @@
                                     </td>
                                     <td class="d-flex">
                                         <button type="button" id="add"
-                                            class="form-control btn btn-dark me-1">+Add</button>
-                                        <button type="button" class="remove btn btn-dark">Remove</button>
+                                            class="form-control btn btn-dark me-1"><i class="ti ti-plus"></i></button>
+                                        <button type="button" class="remove btn btn-dark"><i class="ti ti-minus"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                </div>
             </div>
         </div>
     </div>
