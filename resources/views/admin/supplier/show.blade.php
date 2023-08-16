@@ -6,7 +6,6 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-
                 <div class="card-header bg-white ps-0">
                     <h2>Supplier Information</h2>
                 </div>
@@ -38,13 +37,17 @@
                     <dt class="col-sm-3">Notes</dt>
                     <dd class="col-sm-9">: {{ $supplier->notes }}</dd>
                 </dl>
-                <div class="d-flex justify-content-between">
-                    <a href="{{ route('supplier.index') }}" class="btn btn-primary me-3">Back to List</a>
-                    <form action="{{ route('supplier.destroy', $supplier->id) }}" method="POST">
-                        @csrf
-                        @method('delete')
-                        <a href="#" onclick="showConfirmation(this)" class="btn btn-danger">Delete</a>
-                    </form>
+                <div class="d-flex me-5">
+                    <dt class="col-sm-3">
+                        <a href="{{ route('supplier.index') }}" class="btn btn-primary me-3">Back to List</a>
+                    </dt>
+                    <dt class="col-sm-9">
+                        <form action="{{ route('supplier.destroy', $supplier->id) }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <a href="#" onclick="showConfirmation(this)" class="btn btn-danger">Delete</a>
+                        </form>
+                    </dt>
                 </div>
             </div>
         </div>

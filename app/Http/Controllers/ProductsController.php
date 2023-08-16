@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
-;
+namespace App\Http\Controllers;;
+
 use App\Models\Category;
 use App\Models\Image;
 use App\Http\Requests\StoreProductsRequest;
 use App\Http\Requests\UpdateProductsRequest;
 use App\Models\Products;
+use App\Models\Supplier;
 use Termwind\Components\Dd;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as ImageI;
@@ -19,7 +20,7 @@ class ProductsController extends Controller
     public function index()
     {
         $products = Products::all();
-        return view('admin.products.index');
+        return view('admin.products.index')->with('products', $products);
     }
     public function products()
     {
@@ -33,8 +34,9 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('admin.products.create');
-        
+        $categories = Category::where('status',1)->get();
+        $suppliers = Supplier::all();
+        return view('admin.products.create',compact('categories','suppliers'));
     }
 
     /**
@@ -43,7 +45,9 @@ class ProductsController extends Controller
     public function store(StoreProductsRequest $request)
     {
         // dd($request);
-        $product = $request->all();
+        Products::create($request->all());
+        return redirect()->route('product.index') ->with("success", "Product Created.");
+
         // $image = $request->file;
         // $image = time()+"."+$image->getClint;
         // $product = Products::create($request->all());
@@ -80,25 +84,27 @@ class ProductsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Products $products)
+    public function show(Products $product)
     {
-        //
+        return view('admin.products.show', compact('product'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Products $products)
+    public function edit(Products $product)
     {
-        //
+        $categories = Category::all();
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductsRequest $request, Products $products)
+    public function update(UpdateProductsRequest $request, Products $product)
     {
-        //
+        $product->update($request->all());
+        return back();
     }
 
     /**
@@ -106,6 +112,8 @@ class ProductsController extends Controller
      */
     public function destroy(Products $products)
     {
-        //
+        // dd($request);
+        $products->delete();
+        return redirect()->route('product.index')->with('success', 'product deleted successfully');
     }
 }

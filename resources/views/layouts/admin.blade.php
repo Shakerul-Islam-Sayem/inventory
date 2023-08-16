@@ -65,6 +65,7 @@
         <!--  Main wrapper -->
         <div class="body-wrapper">
             @include('partials.admin.navbar')
+            @include('partials.admin.flash')
             @yield('content')
 
         </div>

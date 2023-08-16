@@ -8,59 +8,71 @@
             <div class="card-body">
                 <div class="container mt-1">
                     <h2>Add Product</h2>
-                    <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        @method('put')
                         <div class="mb-3">
                             <label for="product-title" class="form-label">Product Title</label>
                             <input type="text" class="form-control" id="product_title" title="product_title"
-                                name="product_title">
+                                name="product_title" value="{{ $product->product_title }}">
                         </div>
 
                         <div class="mb-3">
                             <label for="product-description" class="form-label">Product Description</label>
-                            <textarea class="form-control" id="product-description" name="product_description" rows="3"></textarea>
+                            <textarea class="form-control" id="product-description" name="product_description" rows="3">{{ $product->product_description }}</textarea>
                         </div>
 
                         <div class="mb-3">
                             <label for="product-sku" class="form-label">Product SKU</label>
-                            <input type="text" class="form-control" id="product-sku" name="product_sku">
+                            <input type="text" class="form-control" id="product-sku" name="product_sku"
+                                value="{{ $product->product_sku }}">
                         </div>
 
                         <div class="mb-3">
                             <label for="purchase-price" class="form-label">Purchase Price</label>
                             <input type="number" class="form-control" id="purchase-price" name="purchase_price"
-                                step="0.01">
+                                step="0.01" value="{{ $product->purchase_price }}">
                         </div>
 
                         <div class="mb-3">
                             <label for="sale-price" class="form-label">Salling Price</label>
-                            <input type="number" class="form-control" id="sale-price" name="sale_price" step="0.01">
+                            <input type="number" class="form-control" id="sale-price" name="sale_price" step="0.01"
+                                value="{{ $product->sale_price }}">
                         </div>
 
                         <div class="mb-3">
                             <label for="product-category" class="form-label">Product Category</label>
                             <select class="form-control" id="product-category" name="category_id">
+                                @forelse ($categories as $category)
+                                    <option value="{{ $category->id }}" {{ $category->id === $product->category_id ? 'selected' : '' }} >{{ $category->title }}</option>
+                                @empty
+                                <option value="" disabled selected>Select a category</option>
+                                @endforelse
+                                
+                            </select>
+
+                            {{-- <select class="form-control" id="product-category" name="category_id">
                                 <option value="" disabled selected>Select a category</option>
                                 @forelse ($categories as $key => $category)
-                                <option value="{{$category->id}}">{{$category -> title}}</option>
+                                    <option value="{{ $key + 1 }}">{{ $category->title }}</option>
                                 @empty
                                     <option value="1">No Category</option>
                                 @endforelse
-                            </select>
+                            </select> --}}
                         </div>
 
-                        <div class="mb-3">
+                        {{-- <div class="mb-3">
                             <label for="supplier" class="form-label">Supplier</label>
                             <select class="form-select" aria-label="Default select example" id="supplier"
                                 name="supplier_id">
                                 <option value="" disabled selected>Select a supplier</option>
                                 @forelse ($suppliers as $key => $supplier)
-                                    <option value="{{$supplier->id}}">{{$supplier -> supplier_title}}</option>
+                                    <option value="{{ $key + 1 }}">{{ $supplier->supplier_title }}</option>
                                 @empty
                                     <option value="1">No supplier</option>
                                 @endforelse
                             </select>
-                        </div>
+                        </div> --}}
 
                         <div class="mb-3">
                             <div class="col-md-6">
@@ -78,7 +90,7 @@
                                 <img id="frame" src="" class="rounded shadow-lg img-fluid" />
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-lg btn-primary">Add Product</button>
+                        <button type="submit" class="btn btn-lg btn-primary">Update</button>
                     </form>
                 </div>
             </div>

@@ -20,19 +20,11 @@ class Products extends Model
         'supplier_id',
         'product_image',
     ];
-
-    
-    public function images(): HasMany
-    {
-        return $this->hasMany(Image::class);
-    }
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
-    public function subcategory(): BelongsTo
-    {
-        return $this->belongsTo(Subcategory::class);
+    public function supplier(): BelongsTo{
+        return $this->belongsTo(Supplier::class);
     }
-
 }
