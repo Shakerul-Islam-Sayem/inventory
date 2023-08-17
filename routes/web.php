@@ -39,9 +39,9 @@ Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('index')
 Route::resource('category', CategoryController::class);
 Route::resource('supplier', SupplierController::class);
 Route::resource('roles', RoleController::class);
-Route::resource('product',ProductsController::class);
-Route::resource('inward',InwardController::class);
-Route::resource('outward',OutwardController::class);
+Route::resource('product', ProductsController::class);
+Route::resource('inward', InwardController::class);
+Route::resource('outward', OutwardController::class);
 Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
 
 Route::get('/dashboard', function () {

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Inward;
 use App\Http\Requests\StoreInwardRequest;
 use App\Http\Requests\UpdateInwardRequest;
+use App\Models\Category;
+use App\Models\Products;
+use App\Models\Supplier;
 
 class InwardController extends Controller
 {
@@ -13,7 +16,8 @@ class InwardController extends Controller
      */
     public function index()
     {
-        //
+        // $inward = Inward::all();
+        // return view('admin.inward.index')->with('inward', $inward);
     }
 
     /**
@@ -21,7 +25,12 @@ class InwardController extends Controller
      */
     public function create()
     {
-        return view('admin.products.inward');
+        // return view('admin.products.inward');
+
+        $categories = Category::where('status',1)->get();
+        $suppliers = Supplier::all();
+        $products = Products::all();
+        return view('admin.products.inward',compact('categories','suppliers','products'));
     }
 
     /**

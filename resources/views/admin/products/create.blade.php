@@ -42,7 +42,7 @@
                             <select class="form-control" id="product-category" name="category_id">
                                 <option value="" disabled selected>Select a category</option>
                                 @forelse ($categories as $key => $category)
-                                <option value="{{$category->id}}">{{$category -> title}}</option>
+                                    <option value="{{ $category->id }}">{{ $category->title }}</option>
                                 @empty
                                     <option value="1">No Category</option>
                                 @endforelse
@@ -55,7 +55,7 @@
                                 name="supplier_id">
                                 <option value="" disabled selected>Select a supplier</option>
                                 @forelse ($suppliers as $key => $supplier)
-                                    <option value="{{$supplier->id}}">{{$supplier -> supplier_title}}</option>
+                                    <option value="{{ $supplier->id }}">{{ $supplier->supplier_title }}</option>
                                 @empty
                                     <option value="1">No supplier</option>
                                 @endforelse

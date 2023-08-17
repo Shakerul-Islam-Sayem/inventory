@@ -12,10 +12,11 @@
     {{-- <script src="https://cdn.tailwindcss.com"></script> --}}
     <link rel="stylesheet" href="{{ asset('assets/fontawesome/css/all.min.css') }}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/dataTables.bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
 
     <style>
         .sidebar-toggle:hover .hamburger,
@@ -82,6 +83,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
     <script src="bootstrap.min.js"></script>
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
     <script>
         qa = function() {
             var e = document.getElementsByClassName("js-sidebar")[0],
@@ -95,6 +99,7 @@
                         });
                 });
         };
+
         function getAmount() {
             var value = $('#value').val();
             var percent = $('#rate').val();
@@ -124,7 +129,13 @@
             })
         }
     </script>
+    <script>
+        $('.select-field').select2({
+            theme: 'bootstrap-5'
+        });
+    </script>
     @yield('script')
+
 </body>
 
 </html>
