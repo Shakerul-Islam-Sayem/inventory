@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\InwardController;
 use App\Http\Controllers\OutwardController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
@@ -41,6 +42,7 @@ Route::resource('roles', RoleController::class);
 Route::resource('product',ProductsController::class);
 Route::resource('inward',InwardController::class);
 Route::resource('outward',OutwardController::class);
+Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

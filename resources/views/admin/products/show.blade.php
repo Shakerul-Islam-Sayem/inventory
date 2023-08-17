@@ -34,7 +34,7 @@
                     
                                         <dt class="col-sm-3">Profit Margin</dt>
                                         <dd class="col-sm-9">
-                                            {{ (($product->sale_price - $product->purchase_price) / $product->purchase_price) * 100 }}%
+                                            {{ (($product->sale_price - $product->purchase_price) / $product->purchase_price) * 100,2 }}%
                                         </dd>
                     
                                         <dt class="col-sm-3">Product Category</dt>
@@ -47,7 +47,7 @@
                             </tr>
                     </tbody>
                 </table>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-center">
                     <a href="{{ route('product.index') }}" class="btn btn-primary me-3">Back to List</a>
                     <form action="{{ route('product.destroy', $product->id) }}" method="POST">
                         @csrf
