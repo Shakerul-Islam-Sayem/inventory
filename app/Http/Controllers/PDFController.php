@@ -6,8 +6,8 @@ use App\Models\Category;
 use App\Models\PDF as ModelsPDF;
 use Illuminate\Http\Request;
 use App\Models\User;
-use Barryvdh\DomPDF\PDF;
-// use PDF;
+// use Barryvdh\DomPDF\PDF;
+use PDF;
 
 class PDFController extends Controller
 {
