@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Outward;
-use App\Http\Requests\StoreOutwardRequest;
-use App\Http\Requests\UpdateOutwardRequest;
+use App\Models\ProductReturn;
+use App\Http\Requests\StoreProductReturnRequest;
+use App\Http\Requests\UpdateProductReturnRequest;
 use App\Models\Category;
 use App\Models\Products;
 use App\Models\Supplier;
 
-class OutwardController extends Controller
+class ProductReturnController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,13 +27,13 @@ class OutwardController extends Controller
         $categories = Category::where('status',1)->get();
         $suppliers = Supplier::all();
         $products = Products::all();
-        return view('admin.products.outward',compact('categories','suppliers','products'));
+        return view('admin.products.return',compact('categories','suppliers','products'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreOutwardRequest $request)
+    public function store(StoreProductReturnRequest $request)
     {
         //
     }
@@ -41,7 +41,7 @@ class OutwardController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Outward $outward)
+    public function show(ProductReturn $productReturn)
     {
         //
     }
@@ -49,7 +49,7 @@ class OutwardController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Outward $outward)
+    public function edit(ProductReturn $productReturn)
     {
         //
     }
@@ -57,7 +57,7 @@ class OutwardController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateOutwardRequest $request, Outward $outward)
+    public function update(UpdateProductReturnRequest $request, ProductReturn $productReturn)
     {
         //
     }
@@ -65,7 +65,7 @@ class OutwardController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Outward $outward)
+    public function destroy(ProductReturn $productReturn)
     {
         //
     }

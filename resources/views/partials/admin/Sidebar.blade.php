@@ -49,7 +49,7 @@
                             </span>
                             <span class="hide-menu">Outward</span>
                         </a>
-                        <a class="sidebar-link" href="javascript:void(0)" aria-expanded="false">
+                        <a class="sidebar-link" href="{{ route('return.create') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>
@@ -83,7 +83,7 @@
                     </div>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
+                    <a class="sidebar-link" href="{{ route('stock.index') }}" aria-expanded="false">
                         <span>
                             <i class="ti ti-typography"></i>
                         </span>
