@@ -19,7 +19,16 @@ class InwardController extends Controller
     {
         // $inward = Inward::all();
         // return view('admin.inward.index')->with('inward', $inward);
+
+        // return view('index', ['students' => Students::all()]);
+        return view('product');
     }
+
+
+    // public function apiIndex()
+    // {
+    //     return response()->json(Products::all());
+    // }
 
     /**
      * Show the form for creating a new resource.

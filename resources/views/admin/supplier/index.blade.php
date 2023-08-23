@@ -4,6 +4,7 @@
 @endsection
 @section('content')
     <div class="container-fluid">
+        @include('partials.admin.flash')
         <div class="card">
             <div class="card-body py-5">
                 <div class="card-title mb-3 d-flex justify-content-between">

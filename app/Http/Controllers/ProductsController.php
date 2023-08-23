@@ -22,8 +22,8 @@ class ProductsController extends Controller
         $products = Products::all();
         return view('admin.products.index')->with('products', $products);
     }
-    public function products()
-    {
+    public function products(){
+        return response()->json(Products::all());
     }
     public function products_show()
     {

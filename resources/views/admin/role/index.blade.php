@@ -4,6 +4,7 @@
 @endsection
 @section('content')
     <div class="container-fluid">
+        @include('partials.admin.flash')
         <div class="card">
             <div class="card-body">
                 <div class="container rounded">

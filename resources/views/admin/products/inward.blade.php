@@ -26,10 +26,12 @@
                                 id="">
                         </div>
                         <div class="col-3">
-                            <input class=" form-control border-dark" type="text" name="invoice_number" placeholder="Invoice Number">
+                            <input class=" form-control border-dark" type="text" name="invoice_number"
+                                placeholder="Invoice Number">
                         </div>
                         <div class="col-4 mb-5 d-flex align-items-center">
-                            <input class="form-control border-dark" type="file" name="invoice_image" id="formFile" onchange="preview()">
+                            <input class="form-control border-dark" type="file" name="invoice_image" id="formFile"
+                                onchange="preview()">
                             <img id="frame" src="" class="p-1 rounded" style="width: 60px;" />
                             <button id="removeButtonContainer" onclick="clearImage()" class="btn"
                                 style="background-color:rgb(190, 151, 92);"><i class="fa-solid fa-xmark"
@@ -54,7 +56,9 @@
                                 <tr id="optionSet" class="option-row">
                                     <td id="serial-number" class="serial-number">1</td>
                                     <td>
-                                        <select name="product_id" id="product_id select-field"
+                                        <select name="product_id" id="product_id"
+                                            class="select2 select2-bootstrap-5 form-select"></select>
+                                        {{-- <select name="product_id" id="product_id select-field"
                                             class="select2 select2-bootstrap-5 form-select">
                                             <option value="" disabled selected>Select a Product</option>
                                             @forelse ($products as $key => $product)
@@ -62,7 +66,8 @@
                                             @empty
                                                 <option value="1">No product</option>
                                             @endforelse
-                                        </select>
+                                        </select> --}}
+
                                         {{-- <input class="form-control" type="text" name="Product Title" id="product_title"
                                             placeholder="Product Title"> --}}
                                     </td>
@@ -70,7 +75,7 @@
                                         <input class="form-control" type="text" name="purchase_price" id="PurchasePrice"
                                             placeholder="Purchase Price">
                                     </td>
-                                    <td><input class="form-control" type="text" name="sale_price" id="sellingPrice"
+                                    <td><input class="form-control" type="text" name="sale_price" id="salePrice"
                                             placeholder="Selling Price">
                                     </td>
                                     <td><input class="form-control" type="text" name="quantity" id="quantity"
@@ -151,6 +156,32 @@
                     $(this).text(index + 1);
                 });
             }
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            var productData = null;
+            $.ajax({
+                    "url": "http://127.0.0.1:8000/api/product",
+                    "method": "GET",
+                })
+                .done(
+                    function(data) {
+                        productData = [...data];
+
+                        productData.map((item, index) => {
+                            $("#product_id").append(`<option value="${item['id']}">${item['product_title']}</option>`);
+                        })
+                    }
+                );
+            $("#product_id").on('change', function() {
+                var selected = $(this).val();
+                var selectedItem = productData.find(function(item, index) {
+                    return selected == item['id'];
+                })
+                $('#PurchasePrice').val(selectedItem['purchase_price']);
+                $('#salePrice').val(selectedItem['sale_price']);
+            });
         });
     </script>
 @endsection

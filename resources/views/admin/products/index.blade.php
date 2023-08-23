@@ -4,10 +4,12 @@
 @endsection
 @section('content')
     <div class="container-fluid">
+        @include('partials.admin.flash')
         <div class="card">
             <div class="card-body py-1">
-                <div class="card-header ps-0 bg-white text-center">
+                <div class="card-header ps-0 bg-white text-center d-flex justify-content-between">
                     <h2 class=" fw-bolder ">Product List</h2>
+                    <a href="{{route('product.create')}}" class="btn btn-lg btn-primary">Add New</a>
                 </div>
                 <table class="table data-table py-5">
                     <thead class="table-dark table-responsive">
