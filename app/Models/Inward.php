@@ -13,7 +13,6 @@ class Inward extends Model
         'supplier_id',
         'date_received',
         'invoice_number',
-        'serial-number',
         'product_id',
         'purchase_price',
         'sale_price',

@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-body">
                 <h2 class="text-center mb-3">Product Inward</h2>
-                <form action="{{ route('inward.submit') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('inward.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row m-0 gx-2">
                         <div class="col-2">
@@ -56,11 +56,12 @@
                                 <tr id="optionSet" class="option-row">
                                     <td id="serial-number" class="serial-number">1</td>
                                     <td>
-                                        <select name="product_id" id="product_id"
-                                            class="select2 select2-bootstrap-5 form-select"></select>
+                                        <select name="product_id[]"
+                                            class="select2 select2-bootstrap-5 form-select product-select">
+                                            <option value="" disabled selected>Select a Product</option>
+                                        </select>
                                         {{-- <select name="product_id" id="product_id select-field"
                                             class="select2 select2-bootstrap-5 form-select">
-                                            <option value="" disabled selected>Select a Product</option>
                                             @forelse ($products as $key => $product)
                                                 <option value="{{ $product->id }}">{{ $product->product_title }}</option>
                                             @empty
@@ -72,13 +73,13 @@
                                             placeholder="Product Title"> --}}
                                     </td>
                                     <td>
-                                        <input class="form-control" type="text" name="purchase_price" id="PurchasePrice"
+                                        <input class="form-control purchase-price" type="text" name="purchase_price[]"
                                             placeholder="Purchase Price">
                                     </td>
-                                    <td><input class="form-control" type="text" name="sale_price" id="salePrice"
+                                    <td><input class="form-control sale-price" type="text" name="sale_price[]"
                                             placeholder="Selling Price">
                                     </td>
-                                    <td><input class="form-control" type="text" name="quantity" id="quantity"
+                                    <td><input class="form-control" type="text" name="quantity" id="quantity[]"
                                             placeholder="Quantity">
                                     </td>
                                     <td class="d-flex">
@@ -127,8 +128,60 @@
         // });
     </script>
 
+
     <script>
         $(document).ready(function() {
+            var productData = null;
+            $.ajax({
+                    "url": "http://127.0.0.1:8000/api/product",
+                    "method": "GET",
+                })
+                .done(
+                    function(data) {
+                        productData = [...data];
+
+                        // productData.map((item, index) => {
+                        //     $("#product_id").append(
+                        //         `<option value="${item['id']}">${item['product_title']}</option>`);
+                        // })
+                             productData.map((item, index) => {
+                    $(".product-select").append(
+                        `<option value="${item['id']}">${item['product_title']}</option>`);
+                })
+                        // AddProductIdInAllRow();
+                    }
+                );
+
+            // add product id in all row
+            // function AddProductIdInAllRow() {
+            //     productData.map((item, index) => {
+            //         $(".product-select").append(
+            //             `<option value="${item['id']}">${item['product_title']}</option>`);
+            //     })
+            // }
+            // $("#optionSetContainer").on('change', '.product-select', function() {
+            //     var selected = $(this).val();
+            //     var selectedItem = productData.find(function(item, index) {
+            //         return selected == item['id'];
+            //     });
+            //     var tableRow = $(this).closest('.option-row');
+            //     tableRow.find('.purchase-price').val(selectedItem['purchase_price']);
+            //     tableRow.find('.sale-price').val(selectedItem['sale_price']);
+            // });
+
+            $(".product-select").on('change', function() {
+                var selected = $(this).val();
+                var selectedItem = productData.find(function(item, index) {
+                    return selected == item['id'];
+                });
+                // var tableRow = $(this).closest('tr');
+                // $('#PurchasePrice').val(selectedItem['purchase_price']);
+                // $('#salePrice').val(selectedItem['sale_price']);
+                var tableRow = $(this).closest('.option-row');
+                tableRow.find('.purchase-price').val(selectedItem['purchase_price']);
+                tableRow.find('.sale-price').val(selectedItem['sale_price']);
+            });
+            // add new row on click
             var serialNumber = 1; // Initialize the serial number
 
             // Add new option set
@@ -158,30 +211,35 @@
             }
         });
     </script>
-    <script>
+    {{-- <script>
         $(document).ready(function() {
-            var productData = null;
-            $.ajax({
-                    "url": "http://127.0.0.1:8000/api/product",
-                    "method": "GET",
-                })
-                .done(
-                    function(data) {
-                        productData = [...data];
+            var serialNumber = 1; // Initialize the serial number
 
-                        productData.map((item, index) => {
-                            $("#product_id").append(`<option value="${item['id']}">${item['product_title']}</option>`);
-                        })
-                    }
-                );
-            $("#product_id").on('change', function() {
-                var selected = $(this).val();
-                var selectedItem = productData.find(function(item, index) {
-                    return selected == item['id'];
-                })
-                $('#PurchasePrice').val(selectedItem['purchase_price']);
-                $('#salePrice').val(selectedItem['sale_price']);
+            // Add new option set
+            $("#add").click(function() {
+                var optionSet = $("#optionSet:last");
+                var newOptionSet = optionSet.clone(true);
+                newOptionSet.find('input').val('');
+
+                // Update the serial number for the new row
+                serialNumber++;
+                newOptionSet.find('.serial-number').text(serialNumber);
+
+                optionSet.parent().append(newOptionSet);
             });
+
+            // Remove option set
+            $(document).on("click", ".remove", function() {
+                $(this).closest("#optionSet").remove();
+                updateSerialNumbers(); // Update serial numbers after removing a row
+            });
+
+            // Update serial numbers for all rows
+            function updateSerialNumbers() {
+                $(".serial-number").each(function(index) {
+                    $(this).text(index + 1);
+                });
+            }
         });
-    </script>
+    </script> --}}
 @endsection

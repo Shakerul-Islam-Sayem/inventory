@@ -8,7 +8,7 @@ use App\Http\Requests\UpdateInwardRequest;
 use App\Models\Category;
 use App\Models\Products;
 use App\Models\Supplier;
-use GuzzleHttp\Psr7\Request;
+// use GuzzleHttp\Psr7\Request;
 
 class InwardController extends Controller
 {
@@ -43,9 +43,9 @@ class InwardController extends Controller
 
         return view('admin.products.inward',compact('categories','suppliers','products'));
     }
-    public function submit(Request $request){
-        dd($request);
-    }
+    // public function submit(Request $request){
+    //     dd($request);
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -55,9 +55,29 @@ class InwardController extends Controller
     //     return redirect()->route('products.inward')->with("success", "Inward Created.");
     // }
 
-//     public function store(StoreInwardRequest $request)
+    public function store(StoreInwardRequest $request)
+    {
+        $data = $request->validate([
+            'supplier_id' => 'required',
+            'date_received' => 'required',
+            'invoice_number' => 'required',
+        ]
+    );
 
-// {
+    foreach ($data['product_id'] as $index => $value) {
+        Inward::create([
+            'supplier_id' => $data['supplier_id'],
+            'date_received' => $data['date_received'],
+            'invoice_number' => $data['invoice_number'],
+            'product_id' => $value,
+            'purchase_price' => $data['purchase_price'][$index],
+            'sale_price' => $data['sale_price'][$index],
+            'quantity' => $data['quantity'][$index],
+        ]);
+    }
+        return redirect()->route('admin.product.inward');
+
+}
     // Validate the form data
     // $request->validate([
     //     'supplier_id' => 'required',
