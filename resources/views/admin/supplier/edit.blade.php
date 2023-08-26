@@ -53,6 +53,13 @@
                         <input type="text" value="{{ $supplier->bin_number }}" class="form-control" id="bin_number" name="bin_number">
                     </div>
                     <div class="mb-3">
+                        <label for="status" class="form-label">Supplier Status</label>
+                        <select class="form-select form-select-lg" name="status" id="status">
+                            <option value="1" {{ $role->status === 1 ? 'selected' : '' }}>{{ __('Active') }}</option>
+                            <option value="0" {{ $role->status === 0 ? 'selected' : '' }}>{{ __('Inactive') }}</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="notes" class="form-label">Notes</label>
                         <textarea class="form-control" id="notes" name="notes" rows="3">{{ $supplier->note }}</textarea>
                     </div>

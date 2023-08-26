@@ -59,7 +59,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6" class="text-center ">{{ __('Data Not Found') }}</td>
+                                <td colspan="6" class="fw-bolder text-center ">{{ __('Data Not Found') }}</td>
                             </tr>
                         @endforelse
                     </tbody>

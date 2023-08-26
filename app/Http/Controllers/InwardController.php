@@ -6,7 +6,7 @@ use App\Models\Inward;
 use App\Http\Requests\StoreInwardRequest;
 use App\Http\Requests\UpdateInwardRequest;
 use App\Models\Category;
-use App\Models\Products;
+use App\Models\Product;
 use App\Models\Supplier;
 use GuzzleHttp\Psr7\Request;
 use Requests;
@@ -42,7 +42,7 @@ class InwardController extends Controller
 
         $categories = Category::where('status', 1)->get();
         $suppliers = Supplier::all();
-        $products = Products::all();
+        $products = Product::all();
 
         return view('admin.products.inward', compact('categories', 'suppliers', 'products'));
     }

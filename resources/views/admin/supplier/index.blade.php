@@ -23,6 +23,7 @@
                             {{-- <th scope="col">Address</th> --}}
                             {{-- <th scope="col">Tax ID/VAT Number</th> --}}
                             {{-- <th scope="col">BIN Number</th> --}}
+                            <th scope="col">Supplier Status</th>
                             {{-- <th scope="col">Notes</th> --}}
                             <th scope="col" class="text-center">Action</th>
                         </tr>
@@ -36,6 +37,14 @@
                                 <td scope="col">{{ $supplier->contact_person }}</td>
                                 <td scope="col">{{ $supplier->email }}</td> --}}
                                 <td scope="col">{{ $supplier->phone }}</td>
+                                <td>
+                                    @if ($supplier->status === 1)
+                                        <span class="badge bg-success">{{ __('Active') }}</span>
+                                    @else
+                                        <span class="badge bg-danger">{{ __('Inactive') }}</span>
+                                    @endif
+
+                                </td>
                                 {{-- <td scope="col">{{ $supplier->address }}</td> --}}
                                 {{-- <td scope="col">{{ $supplier->tax }}</td> --}}
                                 {{-- <td scope="col">{{ $supplier->bin_number }}</td> --}}
@@ -55,7 +64,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="6" class="text-center">{{ __('No Data Found') }}</td>
+                                <td colspan="6" class="fw-bolder text-center">{{ __('No Data Found') }}</td>
                             </tr>
                         @endforelse
                     </tbody>

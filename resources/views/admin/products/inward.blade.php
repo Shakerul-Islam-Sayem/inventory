@@ -40,24 +40,23 @@
                             <select aria-label="Default select example" id="Payment" name="payment[]"
                                 class="select2 select2-bootstrap-5 form-select border-dark">
                                 <option value="" disabled selected>Select a Payment Method</option>
-                                <option value="1" >Cash</option>
-                                <option value="2" >Bkash</option>
-                                <option value="3" >Nagad</option>
-                                <option value="4" >UCash</option>
-                                <option value="5" >Rocket</option>
+                                <option value="1">Cash</option>
+                                <option value="2">Bkash</option>
+                                <option value="3">Nagad</option>
+                                <option value="4">UCash</option>
+                                <option value="5">Rocket</option>
 
                             </select>
                         </div>
                         <div class="col-3">
-                            <input class=" form-control border-dark" placeholder="Transection ID" type="text" name="trxid[]">
+                            <input class=" form-control border-dark" placeholder="Transection ID" type="text"
+                                name="trxid[]">
                         </div>
                         <div class="col-3">
-                            <input class=" form-control border-dark" type="text" name="dicount[]"
-                                placeholder="Dicount">
+                            <input class=" form-control border-dark" type="number" name="dicount[]" placeholder="Dicount">
                         </div>
                         <div class="col-3">
-                            <input class=" form-control border-dark" type="text" name="comment[]"
-                                placeholder="Comment">
+                            <input class=" form-control border-dark" type="text" name="comment[]" placeholder="Comment">
                         </div>
                     </div>
 
@@ -168,10 +167,10 @@
                         //     $("#product_id").append(
                         //         `<option value="${item['id']}">${item['product_title']}</option>`);
                         // })
-                             productData.map((item, index) => {
-                    $(".product-select").append(
-                        `<option value="${item['id']}">${item['product_title']}</option>`);
-                })
+                        productData.map((item, index) => {
+                            $(".product-select").append(
+                                `<option value="${item['id']}">${item['product_title']}</option>`);
+                        })
                         // AddProductIdInAllRow();
                     }
                 );

@@ -46,6 +46,13 @@
                         <input type="text" class="form-control" id="bin_number" name="bin_number">
                     </div>
                     <div class="mb-3">
+                        <label for="status" class="form-label">Supplier Status</label>
+                        <select class="form-select form-select-lg" name="status" id="status">
+                            <option selected value="1">Active</option>
+                            <option value="0">Deactive</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="notes" class="form-label">Notes</label>
                         <textarea class="form-control" id="notes" name="notes" rows="3"></textarea>
                     </div>

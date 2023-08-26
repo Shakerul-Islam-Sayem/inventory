@@ -6,7 +6,7 @@ use App\Http\Controllers\InwardController;
 use App\Http\Controllers\OutwardController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ProductReturnController;
-use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StockController;
@@ -35,13 +35,13 @@ Route::middleware('guest')->prefix('admin')->group(function () {
 });
 
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('index');
-// Route::get('/products', [ProductsController::class, 'products_show'])->name('products-list');
-// Route::get('/products/create', [ProductsController::class, 'products'])->name('products-create');
+// Route::get('/products', [ProductController::class, 'products_show'])->name('products-list');
+// Route::get('/products/create', [ProductController::class, 'products'])->name('products-create');
 // Route::get('/products/inward', [InwardController::class, 'create'])->name('admin.inward');
 Route::resource('category', CategoryController::class);
 Route::resource('supplier', SupplierController::class);
 Route::resource('roles', RoleController::class);
-Route::resource('product', ProductsController::class);
+Route::resource('product', ProductController::class);
 Route::resource('inward', InwardController::class);
 Route::resource('outward', OutwardController::class);
 Route::resource('return', ProductReturnController::class);

@@ -6,24 +6,24 @@ use App\Models\Category;
 use App\Models\Image;
 use App\Http\Requests\StoreProductsRequest;
 use App\Http\Requests\UpdateProductsRequest;
-use App\Models\Products;
+use App\Models\Product;
 use App\Models\Supplier;
 use Termwind\Components\Dd;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManagerStatic as ImageI;
 
-class ProductsController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $products = Products::all();
+        $products = Product::all();
         return view('admin.products.index')->with('products', $products);
     }
     public function products(){
-        return response()->json(Products::all());
+        return response()->json(Product::all());
     }
     public function products_show()
     {
@@ -35,7 +35,7 @@ class ProductsController extends Controller
     public function create()
     {
         $categories = Category::where('status',1)->get();
-        $suppliers = Supplier::all();
+        $suppliers = Supplier::where('status',1)->get();
         return view('admin.products.create',compact('categories','suppliers'));
     }
 
@@ -45,7 +45,7 @@ class ProductsController extends Controller
     public function store(StoreProductsRequest $request)
     {
         // dd($request);
-        Products::create($request->all());
+        Product::create($request->all());
         return redirect()->route('product.index') ->with("success", "Product Created.");
 
         // $image = $request->file;
@@ -84,7 +84,7 @@ class ProductsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Products $product)
+    public function show(Product $product)
     {
         return view('admin.products.show', compact('product'));
     }
@@ -92,7 +92,7 @@ class ProductsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Products $product)
+    public function edit(Product $product)
     {
         $categories = Category::all();
         return view('admin.products.edit', compact('product', 'categories'));
@@ -101,7 +101,7 @@ class ProductsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductsRequest $request, Products $product)
+    public function update(UpdateProductsRequest $request, Product $product)
     {
         $product->update($request->all());
         return back();
@@ -110,7 +110,7 @@ class ProductsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Products $products)
+    public function destroy(Product $products)
     {
         // dd($request);
         $products->delete();

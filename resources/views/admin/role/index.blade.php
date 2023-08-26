@@ -33,7 +33,7 @@
                                         @if ($role->status === 1)
                                             <span class="badge bg-success">{{ __('Active') }}</span>
                                         @else
-                                            <span class="badge bg-danger">{{ __('Deactive') }}</span>
+                                            <span class="badge bg-danger">{{ __('Inactive') }}</span>
                                         @endif
 
                                     </td>
@@ -84,6 +84,6 @@
                 }
             });
         }
-        
+
     </script>
 @endsection

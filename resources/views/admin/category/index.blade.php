@@ -48,6 +48,9 @@
                                 </td>
                             </tr>
                         @empty
+                            <tr>
+                                <td colspan="6" class="fw-bolder text-center"> No data found </td>
+                            </tr>
                         @endforelse
                     </tbody>
                 </table>

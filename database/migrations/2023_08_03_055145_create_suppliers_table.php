@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('address')->nullable();
             $table->text('tax')->nullable();
             $table->text('bin_number')->nullable();
+            $table->tinyInteger('status')->default(0);
             $table->text('notes')->nullable();
             $table->timestamps();
         });
