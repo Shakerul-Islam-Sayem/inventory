@@ -9,9 +9,9 @@
                 <h2 class="text-center mb-3">Product Inward</h2>
                 <form action="{{ route('inward.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="row m-0 gx-2">
+                    <div class="row mb-3 gx-2">
                         <div class="col-2">
-                            <select aria-label="Default select example" id="supplier first" name="supplier_id"
+                            <select aria-label="Default select example" id="supplier first" name="supplier_id[]"
                                 class="select2 select2-bootstrap-5 form-select border-dark">
                                 <option value="" disabled selected>Select a supplier</option>
                                 @forelse ($suppliers as $key => $supplier)
@@ -22,14 +22,10 @@
                             </select>
                         </div>
                         <div class="col-3">
-                            <input class=" form-control border-dark" type="datetime-local" name="date_received"
+                            <input class=" form-control border-dark" type="datetime-local" name="date_received[]"
                                 id="">
                         </div>
-                        <div class="col-3">
-                            <input class=" form-control border-dark" type="text" name="invoice_number"
-                                placeholder="Invoice Number">
-                        </div>
-                        <div class="col-4 mb-5 d-flex align-items-center">
+                        <div class="col-4 d-flex align-items-center">
                             <input class="form-control border-dark" type="file" name="invoice_image" id="formFile"
                                 onchange="preview()">
                             <img id="frame" src="" class="p-1 rounded" style="width: 60px;" />
@@ -38,6 +34,33 @@
                                     style="color: beige"></i></button>
                         </div>
                     </div>
+
+                    <div class="row mb-2 gx-2">
+                        <div class="col-2">
+                            <select aria-label="Default select example" id="Payment" name="payment[]"
+                                class="select2 select2-bootstrap-5 form-select border-dark">
+                                <option value="" disabled selected>Select a Payment Method</option>
+                                <option value="1" >Cash</option>
+                                <option value="2" >Bkash</option>
+                                <option value="3" >Nagad</option>
+                                <option value="4" >UCash</option>
+                                <option value="5" >Rocket</option>
+
+                            </select>
+                        </div>
+                        <div class="col-3">
+                            <input class=" form-control border-dark" placeholder="Transection ID" type="text" name="trxid[]">
+                        </div>
+                        <div class="col-3">
+                            <input class=" form-control border-dark" type="text" name="dicount[]"
+                                placeholder="Dicount">
+                        </div>
+                        <div class="col-3">
+                            <input class=" form-control border-dark" type="text" name="comment[]"
+                                placeholder="Comment">
+                        </div>
+                    </div>
+
 
                     <div class="">
                         <table class="table table-responsive table-striped">
@@ -79,7 +102,7 @@
                                     <td><input class="form-control sale-price" type="text" name="sale_price[]"
                                             placeholder="Selling Price">
                                     </td>
-                                    <td><input class="form-control" type="text" name="quantity" id="quantity[]"
+                                    <td><input class="form-control" type="text" name="quantity[]" id="quantity"
                                             placeholder="Quantity">
                                     </td>
                                     <td class="d-flex">
@@ -96,6 +119,7 @@
                         </div>
                     </div>
                 </form>
+
             </div>
         </div>
     </div>
@@ -133,7 +157,7 @@
         $(document).ready(function() {
             var productData = null;
             $.ajax({
-                    "url": "http://127.0.0.1:8000/api/product",
+                    "url": "http://localhost/R55/Laravel/inventory/public/api/product",
                     "method": "GET",
                 })
                 .done(

@@ -13,17 +13,15 @@ return new class extends Migration
     {
         Schema::create('inwards', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("product_id")->unsigned();
-            $table->foreign('product_id')->references('id')->on('products')->onDelete("cascade");
-            $table->bigInteger("category_id")->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete("cascade");
             $table->bigInteger("supplier_id")->unsigned();
             $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete("cascade");
-            $table->integer('quantity');
-            $table->decimal('purchase_price', 8, 2);
-            $table->decimal('sale_price', 8, 2);
-            $table->string('invoice_number')->unique();
-            $table->date('date_received');
+            $table->bigInteger('grosstotal')->nullable();
+            $table->bigInteger('discount')->nullable();
+            $table->bigInteger('nettotal')->nullable();
+            $table->string('payment_method')->nullable();
+            $table->string('trxid')->nullable();
+            $table->string('comment')->nullable();
+            $table->date('date_received')->nullable();
             $table->string('invoice_image')->nullable();
             $table->timestamps();
         });
