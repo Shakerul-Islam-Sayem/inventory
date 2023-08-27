@@ -58,6 +58,10 @@ class OutwardController extends Controller
             $id->sale_price = $request->input('sale_price')[$index];
             $id->quantity = $request->input('quantity')[$index];
             $outward->outwarddetails()->save($id);
+            $p = Product::find($product_id);
+            $p->quantity = $p->quantity - $id->quantity;
+            $p ->save();
+            $outward->outwarddetails()->save($id);
         }
         // outwarddetail::create($productData);
         return redirect()->route('outward.create')->with('success', 'Outward Successfully.');

@@ -16,30 +16,32 @@
                                     <dl class="row">
                                         <dt class="col-sm-3">Product Title</dt>
                                         <dd class="col-sm-9">{{ $product->product_title }}</dd>
-                    
+
                                         <dt class="col-sm-3">Product Description</dt>
                                         <dd class="col-sm-9">{{ $product->product_description }}</dd>
-                    
+
                                         <dt class="col-sm-3">Product SKU</dt>
                                         <dd class="col-sm-9">{{ $product->product_sku }}</dd>
-                    
+
                                         <dt class="col-sm-3">Purchase Price</dt>
                                         <dd class="col-sm-9">{{ $product->purchase_price }}</dd>
-                    
+
                                         <dt class="col-sm-3">Sale Price</dt>
                                         <dd class="col-sm-9">{{ $product->sale_price }}</dd>
-                    
+
                                         <dt class="col-sm-3">Profit</dt>
                                         <dd class="col-sm-9">{{ $product->sale_price - $product->purchase_price }}</dd>
-                    
+
                                         <dt class="col-sm-3">Profit Margin</dt>
                                         <dd class="col-sm-9">
                                             {{ (($product->sale_price - $product->purchase_price) / $product->purchase_price) * 100,2 }}%
                                         </dd>
-                    
+                                        <dt class="col-sm-3">Quantity</dt>
+                                        <dd class="col-sm-9">{{ $product->quantiy }}</dd>
+
                                         <dt class="col-sm-3">Product Category</dt>
                                         <dd class="col-sm-9">{{ $product->category->title }}</dd>
-                    
+
                                         <dt class="col-sm-3">Supplier</dt>
                                         <dd class="col-sm-9">{{ $product->supplier->supplier_title }}</dd>
                                     </dl>
