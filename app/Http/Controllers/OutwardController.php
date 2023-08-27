@@ -6,8 +6,10 @@ use App\Models\Outward;
 use App\Http\Requests\StoreOutwardRequest;
 use App\Http\Requests\UpdateOutwardRequest;
 use App\Models\Category;
-use App\Models\Products;
+use App\Models\Outwarddetail;
+use App\Models\Product;
 use App\Models\Supplier;
+use Illuminate\Support\Facades\Log;
 
 class OutwardController extends Controller
 {
@@ -24,10 +26,9 @@ class OutwardController extends Controller
      */
     public function create()
     {
-        $categories = Category::where('status',1)->get();
-        $suppliers = Supplier::all();
-        $products = Products::all();
-        return view('admin.products.outward',compact('categories','suppliers','products'));
+        $suppliers = Supplier::where('status',1)->get();
+        $products = Product::all();
+        return view('admin.products.outward',compact('suppliers','products'));
     }
 
     /**
@@ -35,7 +36,31 @@ class OutwardController extends Controller
      */
     public function store(StoreOutwardRequest $request)
     {
-        //
+        // dd($request->all());
+        $outwardData = [
+            'customer_name' => $request->input('customer_name'),
+            'customer_phone' => $request->input('customer_phone'),
+            'date_received' => $request->input('date_received'),
+            'payment_method' => $request->input('payment_method'),
+            'trxid' => $request->input('trxid'),
+            'discount' => $request->input('discount'),
+            'comment' => $request->input('comment'),
+        ];
+
+        $outward = Outward::create($outwardData);
+
+        Log::info($outward->id);
+
+        foreach ($request->input('product_id') as $index => $product_id) {
+            $id = new Outwarddetail();
+            $id->product_id = $product_id;
+            $id->purchase_price = $request->input('purchase_price')[$index];
+            $id->sale_price = $request->input('sale_price')[$index];
+            $id->quantity = $request->input('quantity')[$index];
+            $outward->outwarddetails()->save($id);
+        }
+        // outwarddetail::create($productData);
+        return redirect()->route('outward.create')->with('success', 'Outward Successfully.');
     }
 
     /**

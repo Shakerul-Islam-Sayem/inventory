@@ -20,7 +20,7 @@ class SupplierSeeder extends Seeder
                 'address' => '123 Main Street',
                 'tax' => '12345',
                 'bin_number' => '67890',
-                'status' => '1',
+                'status' => 1,
                 'notes' => 'Notes for Supplier 1',
             ],
             [
@@ -32,7 +32,7 @@ class SupplierSeeder extends Seeder
                 'address' => '223 Main Street',
                 'tax' => '22345',
                 'bin_number' => '67890',
-                'status' => '1',
+                'status' => 1,
                 'notes' => 'Notes for Supplier 2',
             ],
             [
@@ -44,7 +44,7 @@ class SupplierSeeder extends Seeder
                 'address' => '323 Main Street',
                 'tax' => '32345',
                 'bin_number' => '34540',
-                'status' => '1',
+                'status' => 1,
                 'notes' => 'Notes for Supplier 3',
             ],
             [
@@ -56,7 +56,7 @@ class SupplierSeeder extends Seeder
                 'address' => '43 Main Street',
                 'tax' => '43445',
                 'bin_number' => '67890',
-                'status' => '1',
+                'status' => 1,
                 'notes' => 'Notes for Supplier 4',
             ],
             [
@@ -68,7 +68,7 @@ class SupplierSeeder extends Seeder
                 'address' => '523 Main Street',
                 'tax' => '52345',
                 'bin_number' => '67890',
-                'status' => '0',
+                'status' => 0,
                 'notes' => 'Notes for Supplier 5',
             ],
             [
@@ -80,10 +80,9 @@ class SupplierSeeder extends Seeder
                 'address' => '63 Main Street',
                 'tax' => '6345',
                 'bin_number' => '67890',
-                'status' => '1',
+                'status' => 1,
                 'notes' => 'Notes for Supplier 6',
             ],
-            // Add more supplier data as needed
         ];
 
         foreach ($suppliers as $supplierData) {

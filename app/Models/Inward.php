@@ -11,13 +11,13 @@ class Inward extends Model
     use HasFactory;
     // Inward.php (Inward model)
     protected $fillable = [
+        'inward_id',
         'supplier_id',
         'date_received',
-        'invoice_number',
-        'product_id',
-        'purchase_price',
-        'sale_price',
-        'quantity',
+        'payment_method',
+        'trxid',
+        'discount',
+        'comment',
     ];
     public function products()
     {

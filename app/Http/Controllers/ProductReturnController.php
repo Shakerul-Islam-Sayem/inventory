@@ -6,7 +6,7 @@ use App\Models\ProductReturn;
 use App\Http\Requests\StoreProductReturnRequest;
 use App\Http\Requests\UpdateProductReturnRequest;
 use App\Models\Category;
-use App\Models\Products;
+use App\Models\Product;
 use App\Models\Supplier;
 
 class ProductReturnController extends Controller
@@ -26,7 +26,7 @@ class ProductReturnController extends Controller
     {
         $categories = Category::where('status',1)->get();
         $suppliers = Supplier::all();
-        $products = Products::all();
+        $products = Product::all();
         return view('admin.products.return',compact('categories','suppliers','products'));
     }
 

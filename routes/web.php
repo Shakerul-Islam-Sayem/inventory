@@ -48,9 +48,7 @@ Route::resource('return', ProductReturnController::class);
 Route::resource('stock', StockController::class);
 // Route::post('/create', [InwardController::class, 'submit'])->name('inward.submit');
 // Route::post('i', [InwardController::class, 'store'])->name('inward.submit');
-Route::resource('outward', OutwardController::class);
 Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
-// Route::get('inward2',[InwardController::class, 'submit']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

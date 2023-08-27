@@ -10,12 +10,11 @@ class Inwarddetail extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'supplier_id',
-        'date_received',
-        'payment',
-        'trxid',
-        'dicount',
-        'comment',
+        'inward_id',
+        'product_id',
+        'quantity',
+        'purchase_price',
+        'sale_price',
     ];
 
     public function inward(): BelongsTo

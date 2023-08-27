@@ -6,9 +6,11 @@ use App\Models\Inward;
 use App\Http\Requests\StoreInwardRequest;
 use App\Http\Requests\UpdateInwardRequest;
 use App\Models\Category;
+use App\Models\Inwarddetail;
 use App\Models\Product;
 use App\Models\Supplier;
 use GuzzleHttp\Psr7\Request;
+use Illuminate\Support\Facades\Log;
 use Requests;
 
 // use GuzzleHttp\Psr7\Request;
@@ -38,47 +40,37 @@ class InwardController extends Controller
      */
     public function create()
     {
-        // return view('admin.products.inward');
-
-        $categories = Category::where('status', 1)->get();
-        $suppliers = Supplier::all();
+        $suppliers = Supplier::where('status', 1)->get();
         $products = Product::all();
 
-        return view('admin.products.inward', compact('categories', 'suppliers', 'products'));
+        return view('admin.products.inward', compact('suppliers', 'products'));
     }
-    // public function submit(Request $request)
-    // {
-    //     // dd($request->all());
-
-    // }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    // public function store(Request $request){
-    //     Inward::create($request->all());
-    //     return redirect()->route('products.inward')->with("success", "Inward Created.");
-    // }
 
     public function store(StoreInwardRequest $request)
     {
-        dd($request->all());
-        // Inward::create($request->all());
-        // $data = $request->all();
-        // $productsData = $data['product'];
+        // dd($request->all());
+        $inwardData = [
+            'supplier_id' => $request->input('supplier_id'),
+            'date_received' => $request->input('date_received'),
+            'payment_method' => $request->input('payment_method'),
+            'trxid' => $request->input('trxid'),
+            'discount' => $request->input('discount'),
+            'comment' => $request->input('comment'),
+        ];
 
-        // foreach ($productsData as $productData) {
-        //     Inward::create([
-        //         'supplier_id' => $data['supplier_id'],
-        //         'date_received' => $data['date_received'],
-        //         'invoice_number' => $data['invoice_number'],
-        //         'product_id' => $productData['product_id'],
-        //         'purchase_price' => $productData['purchase_price'],
-        //         'sale_price' => $productData['sale_price'],
-        //         'quantity' => $productData['quantity'],
-        //     ]);
-        // }
+        $inward = Inward::create($inwardData);
 
+        Log::info($inward->id);
+
+        foreach ($request->input('product_id') as $index => $product_id) {
+            $id = new Inwarddetail();
+            $id->product_id = $product_id;
+            $id->purchase_price = $request->input('purchase_price')[$index];
+            $id->sale_price = $request->input('sale_price')[$index];
+            $id->quantity = $request->input('quantity')[$index];
+            $inward->inwarddetails()->save($id);
+        }
+        // Inwarddetail::create($productData);
         return redirect()->route('inward.create')->with('success', 'Inward successfully.');
     }
     // $data = $request->validate(
