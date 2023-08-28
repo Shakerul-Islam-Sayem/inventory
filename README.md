@@ -49,6 +49,94 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
 - **[Lendio](https://lendio.com)**
 
+
+## Technologies Used
+
+The following technologies have been used in the development of Inventory:
+
+- **[Laravel](https://laravel.com/)** : A popular PHP web application framework known for its elegant syntax and feature-rich ecosystem.
+- **[Laravel Blade](https://laravel.com/)** : The templating engine provided by Laravel for designing and rendering views.
+- **[MySQL]** : The database management system used to store application data.
+- **[Bootstrap](https://getbootstrap.com/)** : A CSS framework for creating responsive and attractive UI components.
+- **[FontAwesome](https://fontawesome.com/)**: A popular icon library that provides a wide range of icons for web projects.
+
+
+## Getting Started
+
+Follow these instructions to get a copy of the Inventory project up and running on your local machine for development and testing purposes.
+
+#### Prerequisites
+
+Before you proceed, ensure you have the following software installed:
+
+- PHP (Version 8.2)
+- Composer (Version 2.5)
+- MySQL (Version 8.2)
+- Laravel (Version 10.16)
+
+#### Installation
+
+1. Clone the **Inventory** repository to your local machine using the following command:
+```bash
+git clone https://github.com/Shakerul-Islam-Sayem/inventory.git
+```
+
+2. Navigate to the project directory:
+```bash
+cd inventory
+```
+
+3. Install the required `PHP` dependencies using Composer:
+```bash
+composer install
+```
+
+4. Install `Node.js` dependencies
+###### Using npm:
+```bash
+npm install
+```
+or,
+###### using Yarn:
+```bash
+yarn
+```
+
+5. Generate `Vite` serve manifest:
+###### Using npm:
+```bash
+npm run dev
+```
+or,
+###### using Yarn:
+```bash
+yarn dev
+```
+
+6. Create a new MySQL database for inventory and update the `.env` file with your database credentials:
+```bash
+cp .env.example .env
+```
+
+7. Generate a unique application key:
+```bash
+php artisan key:generate
+```
+
+8. Run the database migrations and seed the database with initial data:
+```bash
+php artisan migrate --seed
+```
+
+9. Start the development server:
+```bash
+php artisan serve
+```
+
+Congratulations! inventory should now be up and running at `http://localhost:8000`.
+
+
+
 ## Contributing
 
 Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).

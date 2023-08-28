@@ -3,17 +3,16 @@
 
 <head>
     <title>Inventory</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 
 <body>
-    <h1>{{ $title }}</h1>
+    <h1>Product Inward</h1>
     <p>Date: {{ $date }}</p>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua.</p>
 
-        <table class="table data-table py-5">
+        <table class="table table-primary table-striped table-bordered border-dark caption-top table-responsive" style="width: 100%;">
             <thead class="table-dark table-responsive">
                 <tr>
                     <th scope="col">SL</th>

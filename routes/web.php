@@ -49,6 +49,7 @@ Route::resource('stock', StockController::class);
 // Route::post('/create', [InwardController::class, 'submit'])->name('inward.submit');
 // Route::post('i', [InwardController::class, 'store'])->name('inward.submit');
 Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
+Route::get('generate-pdf2', [PDFController::class, 'generatePDF2']);
 
 
 Route::get('/dashboard', function () {
