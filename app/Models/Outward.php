@@ -23,5 +23,9 @@ class Outward extends Model
     {
         return $this->hasMany(Outwarddetail::class);
     }
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 
 }

@@ -8,21 +8,21 @@
         <div class="card">
             <div class="card-body py-1">
                 <div class="card-header ps-0 bg-white text-center d-flex justify-content-between">
-                    <h2 class=" fw-bolder ">Product Inward List</h2>
+                    <h2 class=" fw-bolder ">Product Outward List</h2>
                     <div>
-                        <a href="{{ route('inward.create') }}" class="btn btn-lg btn-primary">Add New</a>
-                        <a  href="{{ route('inward_pdf') }}" class="btn btn-lg btn-primary">Print PDF</a>
+                        <a href="{{ route('outward.create') }}" class="btn btn-lg btn-primary">Add New</a>
+                        <a  href="{{ route('outward_pdf') }}" class="btn btn-lg btn-primary">Print PDF</a>
                     </div>
                 </div>
                 <div class="row mb-3 gx-2">
                     <div class="col-3">
-                        <select aria-label="Default select example" name="inward_id"
+                        <select aria-label="Default select example" name="outward_id"
                             class="select2 select2-bootstrap-5 form-select border-dark">
-                            <option value="" disabled selected>Select Inward Id</option>
-                            @forelse ($inwarddetails as $key => $inwarddetail)
-                                <option value="{{ $inwarddetail->id }}">{{ $inwarddetail->inward_id }}</option>
+                            <option value="" disabled selected>Select outward Id</option>
+                            @forelse ($outwarddetails as $key => $outwarddetail)
+                                <option value="{{ $outwarddetail->id }}">{{ $outwarddetail->outward_id }}</option>
                             @empty
-                                <option value="1">No Inward</option>
+                                <option value="1">No outward</option>
                             @endforelse
                         </select>
                     </div>
@@ -47,18 +47,18 @@
                             $totalPurchaseAmount = 0;
                         @endphp
 
-                        @forelse ($inwarddetails as $k => $inwarddetail)
+                        @forelse ($outwarddetails as $k => $outwarddetail)
                             <tr class="" style="height: 34px">
                                 <td scope="row">{{ $k + 1 }}</td>
-                                <td scope="col">{{ $inwarddetail->product->product_title }}</td>
-                                <td scope="col">{{ $inwarddetail->purchase_price }}</td>
-                                <td scope="col">{{ $inwarddetail->sale_price }}</td>
-                                <td scope="col">{{ $inwarddetail->quantity }} pcs</td>
-                                <td scope="col">{{ $inwarddetail->inward->date_received }}</td>
+                                <td scope="col">{{ $outwarddetail->product->product_title }}</td>
+                                <td scope="col">{{ $outwarddetail->purchase_price }}</td>
+                                <td scope="col">{{ $outwarddetail->sale_price }}</td>
+                                <td scope="col">{{ $outwarddetail->quantity }} pcs</td>
+                                <td scope="col">{{ $outwarddetail->outward->date_received }}</td>
                             </tr>
 
                             @php
-                                $totalPurchaseAmount += $inwarddetail->purchase_price * $inwarddetail->quantity;
+                                $totalPurchaseAmount += $outwarddetail->sale_price * $outwarddetail->quantity;
                             @endphp
                         @empty
                             <tr>

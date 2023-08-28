@@ -77,6 +77,31 @@
                     </div>
                 </li>
                 <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('return.create') }}" class="nav-link dropdown-toggle" href="#forreturn"
+                        role="button" data-bs-toggle="collapse" data-bs-target="#forreturn" aria-expanded="true"
+                        aria-controls="forreturn">
+                        <span>
+                            <i class="ti ti-article"></i>
+                        </span>
+                        <span class="hide-menu">Return Product</span>
+                    </a>
+                    <div id="forreturn" class="nav-collapse collapse" data-bs-parent="#products"
+                        hs-parent-area="#products" style="margin-left: 1rem;">
+                        <a class="sidebar-link" href="{{ route('return.create') }}" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-alert-circle"></i>
+                            </span>
+                            <span class="hide-menu">Return Create</span>
+                        </a>
+                        <a class="sidebar-link" href="{{ route('return.index') }}" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-alert-circle"></i>
+                            </span>
+                            <span class="hide-menu">Return List</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="sidebar-item">
                     <a class="sidebar-link" href="javascript:void(0)" class="nav-link dropdown-toggle" href="#fordamage"
                         role="button" data-bs-toggle="collapse" data-bs-target="#fordamage" aria-expanded="true"
                         aria-controls="fordamage">

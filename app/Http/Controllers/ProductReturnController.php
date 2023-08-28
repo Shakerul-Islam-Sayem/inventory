@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateProductReturnRequest;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Supplier;
+use Illuminate\Support\Facades\Log;
 
 class ProductReturnController extends Controller
 {
@@ -24,10 +25,8 @@ class ProductReturnController extends Controller
      */
     public function create()
     {
-        $categories = Category::where('status',1)->get();
-        $suppliers = Supplier::all();
         $products = Product::all();
-        return view('admin.products.return',compact('categories','suppliers','products'));
+        return view('admin.productreturn.create',compact('products'));
     }
 
     /**
@@ -35,7 +34,37 @@ class ProductReturnController extends Controller
      */
     public function store(StoreProductReturnRequest $request)
     {
-        //
+        // dd($request->all());
+        $returndata = [
+            'supplier_id' => $request->input('supplier_id'),
+            'date_received' => $request->input('date_received'),
+            'payment_method' => $request->input('payment_method'),
+            'trxid' => $request->input('trxid'),
+            'discount' => $request->input('discount'),
+            'comment' => $request->input('comment'),
+        ];
+        $validatedData = $request->validate([
+            'supplier_id' => 'required',
+            'date_received' => 'required|date',
+        ]);
+
+        $inward = ProductReturn::create($returndata);
+
+        Log::info($inward->id);
+
+        foreach ($request->input('product_id') as $index => $product_id) {
+            $id = new Inwarddetail();
+            $id->product_id = $product_id;
+            $id->purchase_price = $request->input('purchase_price')[$index];
+            $id->sale_price = $request->input('sale_price')[$index];
+            $id->quantity = $request->input('quantity')[$index];
+            $p = Product::find($product_id);
+            $p->quantity = $p->quantity + $id->quantity;
+            $p ->save();
+            $inward->inwarddetails()->save($id);
+        }
+        // Inwarddetail::create($productData);
+        return redirect()->route('inward.index')->with('success', 'Inward successfully.');
     }
 
     /**

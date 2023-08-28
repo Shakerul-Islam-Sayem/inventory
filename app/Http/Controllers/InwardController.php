@@ -24,20 +24,8 @@ class InwardController extends Controller
     {
         $inwarddetails = Inwarddetail::all();
         $inwards = Inward::all();
-        // return view('admin.inward.index')->with('inward', $inward);
-
-        // return view('index', ['students' => Students::all()]);
         return view('admin.inward.index')->with('inwarddetails', $inwarddetails);
     }
-
-    // public function apiIndex()
-    // {
-    //     return response()->json(Products::all());
-    // }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $suppliers = Supplier::where('status', 1)->get();
@@ -57,6 +45,10 @@ class InwardController extends Controller
             'discount' => $request->input('discount'),
             'comment' => $request->input('comment'),
         ];
+        $validatedData = $request->validate([
+            'supplier_id' => 'required',
+            'date_received' => 'required|date',
+        ]);
 
         $inward = Inward::create($inwardData);
 
@@ -74,62 +66,9 @@ class InwardController extends Controller
             $inward->inwarddetails()->save($id);
         }
         // Inwarddetail::create($productData);
-        return redirect()->route('inward.create')->with('success', 'Inward successfully.');
+        return redirect()->route('inward.index')->with('success', 'Inward successfully.');
     }
-    // $data = $request->validate(
-    //     [
-    //         'supplier_id' => 'required',
-    //         'date_received' => 'required',
-    //         'invoice_number' => 'required',
-    //     ]
-    // );
 
-    // foreach ($data['product_id'] as $index => $value) {
-    //     Inward::create([
-    //         'supplier_id' => $data['supplier_id'],
-    //         'date_received' => $data['date_received'],
-    //         'invoice_number' => $data['invoice_number'],
-    //         'product_id' => $value,
-    //         'purchase_price' => $data['purchase_price'][$index],
-    //         'sale_price' => $data['sale_price'][$index],
-    //         'quantity' => $data['quantity'][$index],
-    //     ]);
-    // }
-    // return redirect()->route('admin.product.inward');
-
-    // Validate the form data
-    // $request->validate([
-    //     'supplier_id' => 'required',
-    //     'date' => 'required',
-    //     'invoice_number' => 'required|unique:inwards', // Assuming 'invoice_number' is unique
-    //     // Add validation rules for other fields
-    // ]);
-
-    // // Create a new inward entry
-    // $inward = new Inward([
-    //     'supplier_id' => $request->input('supplier_id'),
-    //     'date' => $request->input('date'),
-    //     'invoice_number' => $request->input('invoice_number'),
-    //     // Map other fields here
-    // ]);
-
-    // $inward->save(); // Save the entry
-
-    // Process and save product details using a loop
-    //     foreach ($request->input('product_id') as $key => $product_id) {
-    //         $inward->products()->attach($product_id, [
-    //             'purchase_price' => $request->input('purchase_price')[$key],
-    //             'sale_price' => $request->input('sale_price')[$key],
-    //             'quantity' => $request->input('quantity')[$key],
-    //         ]);
-    //     }
-
-    //     return redirect()->route('inward.create')->with('success', 'Inward entry created successfully.');
-    // }
-
-    /**
-     * Display the specified resource.
-     */
     public function show(Inward $inward)
     {
         //

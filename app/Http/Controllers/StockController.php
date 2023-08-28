@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Stock;
 use App\Http\Requests\StoreStockRequest;
 use App\Http\Requests\UpdateStockRequest;
+use App\Models\Product;
+use App\Models\Supplier;
 
 class StockController extends Controller
 {
@@ -13,7 +15,9 @@ class StockController extends Controller
      */
     public function index()
     {
-        return view('admin.products.stock');
+        $products = Product::all();
+        $suppliers = Supplier::all();
+        return view('admin.products.stock', ['products' => $products, 'suppliers' => $suppliers]);
     }
 
     /**

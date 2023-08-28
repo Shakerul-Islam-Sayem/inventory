@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\SupplierController;
+use FontLib\Table\Type\name;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -49,7 +50,8 @@ Route::resource('stock', StockController::class);
 // Route::post('/create', [InwardController::class, 'submit'])->name('inward.submit');
 // Route::post('i', [InwardController::class, 'store'])->name('inward.submit');
 Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
-Route::get('generate-pdf2', [PDFController::class, 'generatePDF2']);
+Route::get('inward_pdf', [PDFController::class, 'inwardpdf'])->name('inward_pdf');
+Route::get('outward_pdf', [PDFController::class, 'outwardpdf'])->name('outward_pdf');
 
 
 Route::get('/dashboard', function () {

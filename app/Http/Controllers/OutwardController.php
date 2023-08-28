@@ -18,7 +18,9 @@ class OutwardController extends Controller
      */
     public function index()
     {
-        //
+        $outwarddetails = Outwarddetail::all();
+        $outwards = Outward::all();
+        return view('admin.outward.index')->with('outwarddetails', $outwarddetails);
     }
 
     /**
@@ -64,7 +66,7 @@ class OutwardController extends Controller
             $outward->outwarddetails()->save($id);
         }
         // outwarddetail::create($productData);
-        return redirect()->route('outward.create')->with('success', 'Outward Successfully.');
+        return redirect()->route('outward.index')->with('success', 'Outward Successfully.');
     }
 
     /**

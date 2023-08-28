@@ -23,8 +23,6 @@ class Inward extends Model
     {
         return $this->belongsToMany(Product::class)->withPivot('purchase_price', 'sale_price', 'quantity');
     }
-
-    // Product.php (Product model)
     public function inwards()
     {
         return $this->belongsToMany(Inward::class)->withPivot('purchase_price', 'sale_price', 'quantity');

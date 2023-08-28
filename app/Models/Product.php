@@ -25,8 +25,13 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class);
     }
-    public function supplier(): BelongsTo{
+    public function supplier(): BelongsTo
+    {
         return $this->belongsTo(Supplier::class);
+    }
+    public function stock(): BelongsTo
+    {
+        return $this->belongsTo(stock::class);
     }
     public function inwarddetail()
     {

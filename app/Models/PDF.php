@@ -12,4 +12,7 @@ class PDF extends Model
     public function Inwarddetail(): BelongsTo{
         return $this->belongsTo(Inwarddetail::class);
     }
+    public function Outwarddetail(): BelongsTo{
+        return $this->belongsTo(Outwarddetail::class);
+    }
 }

@@ -22,118 +22,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Loop through your stock records here -->
-                            {{-- @foreach ($stock as $item) --}}
-                            <tr>
-                                {{-- <td>{{ $item->product_title }}</td>
-                                <td>{{ $item->purchase_price }}</td>
-                                <td>{{ $item->sale_price }}</td>
-                                <td>{{ $item->quantity }}</td>
-                                <td>{{ $item->supplier_title }}</td> --}}
-                                <td>1</td>
-                                <td>Samsang</td>
-                                <td>Samsang Note s23</td>
-                                <td>142939/-</td>
-                                <td>145695/-</td>
-                                <td>353 pcs</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Vivo</td>
-                                <td>Vivo X34</td>
-                                <td>90939/-</td>
-                                <td>93695/-</td>
-                                <td>53 pcs</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Supplier Y</td>
-                                <td>Product B</td>
-                                <td>4053/-</td>
-                                <td>6053/-</td>
-                                <td>506 pcs</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Realme</td>
-                                <td>Narzo 50i</td>
-                                <td>62939/-</td>
-                                <td>64695/-</td>
-                                <td>169 pcs</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Vivo</td>
-                                <td>Vivo X54</td>
-                                <td>20939/-</td>
-                                <td>32695/-</td>
-                                <td>53 pcs</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Supplier X</td>
-                                <td>Product A</td>
-                                <td>5053/-</td>
-                                <td>7553/-</td>
-                                <td>1006 pcs</td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>Supplier Z</td>
-                                <td>Product C</td>
-                                <td>3053/-</td>
-                                <td>4553/-</td>
-                                <td>756 pcs</td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>Vivo</td>
-                                <td>Vivo X34</td>
-                                <td>90939/-</td>
-                                <td>93695/-</td>
-                                <td>53 pcs</td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>Supplier Y</td>
-                                <td>Product B</td>
-                                <td>4053/-</td>
-                                <td>6053/-</td>
-                                <td>506 pcs</td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>Realme</td>
-                                <td>Narzo 50i</td>
-                                <td>62939/-</td>
-                                <td>64695/-</td>
-                                <td>169 pcs</td>
-                            </tr>
-                            <tr>
-                                <td>11</td>
-                                <td>Vivo</td>
-                                <td>Vivo X54</td>
-                                <td>20939/-</td>
-                                <td>32695/-</td>
-                                <td>53 pcs</td>
-                            </tr>
-                            <tr>
-                                <td>12</td>
-                                <td>Supplier X</td>
-                                <td>Product A</td>
-                                <td>5053/-</td>
-                                <td>7553/-</td>
-                                <td>1006 pcs</td>
-                            </tr>
-                            <tr>
-                                <td>13</td>
-                                <td>Supplier Z</td>
-                                <td>Product C</td>
-                                <td>3053/-</td>
-                                <td>4553/-</td>
-                                <td>756 pcs</td>
-                            </tr>
-                            {{-- @endforeach --}}
+                            @forelse ($products as $k => $product)
+                                <tr>
+                                    <<td scope="row">{{ $k + 1 }}</td>
+                                    <td>
+                                        @php
+                                            $supplier = $suppliers->where('id', $product->supplier_id)->first();
+                                        @endphp
+                                        {{ $supplier ? $supplier->supplier_title : 'N/A' }}
+                                    </td>
+                                        <td scope="col">{{ $product->product_title }}</td>
+                                        <td scope="col">{{ $product->purchase_price }}</td>
+                                        <td scope="col">{{ $product->sale_price }}</td>
+                                        <td scope="col">{{ $product->quantity }} pcs</td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="6" class="fw-bolder text-center ">{{ __('Data Not Found') }}</td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

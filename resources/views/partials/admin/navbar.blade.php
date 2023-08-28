@@ -1,7 +1,7 @@
       <!--  Header Start -->
       <header class="app-header">
           <nav class="navbar navbar-expand-lg navbar-light">
-                 
+
             <ul class="navbar-nav">
                 <a id="toggle_btn" class="sidebar-toggle js-sidebar-toggle">
                     <i class="hamburger align-self-center"></i>
@@ -50,7 +50,7 @@
                                       <i class="ti ti-list-check fs-6"></i>
                                       <p class="mb-0 fs-3">My Task</p>
                                   </a>
-                                  <a href="./authentication-login.html"
+                                  <a href="javascript:void(0)"
                                       class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                               </div>
                           </div>

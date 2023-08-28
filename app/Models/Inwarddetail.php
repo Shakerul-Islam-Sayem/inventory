@@ -30,4 +30,8 @@ class Inwarddetail extends Model
     {
         return $this->hasMany(PDF::class);
     }
+    public function supplier()
+    {
+        return $this->belongsTo(Supplier::class);
+    }
 }
