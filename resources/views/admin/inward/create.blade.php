@@ -4,14 +4,15 @@
 @endsection
 @section('content')
     <div class="container-fluid">
+        @include('partials.admin.flash')
         <div class="card">
             <div class="card-body">
                 <h2 class="text-center mb-3">Product Inward</h2>
                 <form action="{{ route('inward.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-3 gx-2">
-                        <div class="col-2">
-                            <select aria-label="Default select example" id="supplier first" name="supplier_id[]"
+                        <div class="col-3">
+                            <select aria-label="Default select example" id="supplier first" name="supplier_id"
                                 class="select2 select2-bootstrap-5 form-select border-dark">
                                 <option value="" disabled selected>Select a supplier</option>
                                 @forelse ($suppliers as $key => $supplier)
@@ -22,10 +23,10 @@
                             </select>
                         </div>
                         <div class="col-3">
-                            <input class=" form-control border-dark" type="datetime-local" name="date_received[]"
+                            <input class=" form-control border-dark" type="datetime-local" name="date_received"
                                 id="">
                         </div>
-                        <div class="col-4 d-flex align-items-center">
+                        <div class="col-5 d-flex align-items-center">
                             <input class="form-control border-dark" type="file" name="invoice_image" id="formFile"
                                 onchange="preview()">
                             <img id="frame" src="" class="p-1 rounded" style="width: 60px;" />
@@ -37,7 +38,7 @@
 
                     <div class="row mb-2 gx-2">
                         <div class="col-2">
-                            <select aria-label="Default select example" id="Payment" name="payment[]"
+                            <select aria-label="Default select example" id="Payment" name="payment_method"
                                 class="select2 select2-bootstrap-5 form-select border-dark">
                                 <option value="" disabled selected>Select a Payment Method</option>
                                 <option value="1">Cash</option>
@@ -50,13 +51,13 @@
                         </div>
                         <div class="col-3">
                             <input class=" form-control border-dark" placeholder="Transection ID" type="text"
-                                name="trxid[]">
+                                name="trxid">
                         </div>
                         <div class="col-3">
-                            <input class=" form-control border-dark" type="number" name="dicount[]" placeholder="Dicount">
+                            <input class=" form-control border-dark" type="number" name="discount" placeholder="Dicount">
                         </div>
                         <div class="col-3">
-                            <input class=" form-control border-dark" type="text" name="comment[]" placeholder="Comment">
+                            <input class=" form-control border-dark" type="text" name="comment" placeholder="Comment">
                         </div>
                     </div>
 
@@ -118,7 +119,6 @@
                         </div>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
@@ -156,7 +156,7 @@
         $(document).ready(function() {
             var productData = null;
             $.ajax({
-                    "url": "http://localhost/R55/Laravel/inventory/public/api/product",
+                    "url": "http://127.0.0.1:8000/api/product",
                     "method": "GET",
                 })
                 .done(
@@ -234,35 +234,4 @@
             }
         });
     </script>
-    {{-- <script>
-        $(document).ready(function() {
-            var serialNumber = 1; // Initialize the serial number
-
-            // Add new option set
-            $("#add").click(function() {
-                var optionSet = $("#optionSet:last");
-                var newOptionSet = optionSet.clone(true);
-                newOptionSet.find('input').val('');
-
-                // Update the serial number for the new row
-                serialNumber++;
-                newOptionSet.find('.serial-number').text(serialNumber);
-
-                optionSet.parent().append(newOptionSet);
-            });
-
-            // Remove option set
-            $(document).on("click", ".remove", function() {
-                $(this).closest("#optionSet").remove();
-                updateSerialNumbers(); // Update serial numbers after removing a row
-            });
-
-            // Update serial numbers for all rows
-            function updateSerialNumbers() {
-                $(".serial-number").each(function(index) {
-                    $(this).text(index + 1);
-                });
-            }
-        });
-    </script> --}}
 @endsection

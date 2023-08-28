@@ -22,13 +22,13 @@ class InwardController extends Controller
      */
     public function index()
     {
-        // $inward = Inward::all();
+        $inwarddetails = Inwarddetail::all();
+        $inwards = Inward::all();
         // return view('admin.inward.index')->with('inward', $inward);
 
         // return view('index', ['students' => Students::all()]);
-        return view('product');
+        return view('admin.inward.index')->with('inwarddetails', $inwarddetails);
     }
-
 
     // public function apiIndex()
     // {
@@ -43,7 +43,7 @@ class InwardController extends Controller
         $suppliers = Supplier::where('status', 1)->get();
         $products = Product::all();
 
-        return view('admin.products.inward', compact('suppliers', 'products'));
+        return view('admin.inward.create', compact('suppliers', 'products'));
     }
 
     public function store(StoreInwardRequest $request)

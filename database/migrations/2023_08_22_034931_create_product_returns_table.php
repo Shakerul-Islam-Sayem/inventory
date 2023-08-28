@@ -24,7 +24,7 @@ return new class extends Migration
             $table->decimal('sale_price', 8, 2);
             $table->date('date_received');
             $table->timestamps();
-            
+
         });
     }
 

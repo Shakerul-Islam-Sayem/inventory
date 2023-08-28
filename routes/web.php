@@ -50,6 +50,7 @@ Route::resource('stock', StockController::class);
 // Route::post('i', [InwardController::class, 'store'])->name('inward.submit');
 Route::get('generate-pdf', [PDFController::class, 'generatePDF']);
 
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

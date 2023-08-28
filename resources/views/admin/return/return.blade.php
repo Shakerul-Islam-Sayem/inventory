@@ -6,8 +6,8 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <h2 class="text-center mb-3">Product Outward</h2>
-                <form action="{{ route('outward.create') }}" method="POST" enctype="multipart/form-data">
+                <h2 class="text-center mb-3">Product Return</h2>
+                <form action="{{ route('return.create') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row m-0 gx-2">
                         <div class="col-4 mb-3">
@@ -117,3 +117,4 @@
     });
 </script>
 @endsection
+

@@ -23,9 +23,9 @@
                             {{-- <th scope="col">Profit</th> --}}
                             {{-- <th scope="col">Profit Margin</th> --}}
                             {{-- <th scope="col">Product Category</th> --}}
-                            <th scope="col">Supplier</th>
+                            <th scope="col">Quantity</th>
                             <th scope="col">Product Image</th>
-                            <th scope="col">Action</th>
+                            <th scope="col" class="text-center fw-bolder">Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -42,7 +42,7 @@
                                     {{-- {{ (($product->sale_price - $product->purchase_price) / $product->purchase_price) * 100 }}% --}}
                                 </td>
                                 {{-- <td scope="col">{{ $product->category->title }}</td> --}}
-                                <td scope="col">{{ $product->supplier->supplier_title }}</td>
+                                <td scope="col">{{ $product->quantity }} pcs</td>
                                 <td scope="col">Product Image</td>
                                 <td scope="col" class="d-flex justify-content-center">
                                     <a href="{{ route('product.show', $product->id) }}" class="btn btn-info me-1"><i

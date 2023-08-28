@@ -22,6 +22,7 @@ class ProductSeeder extends Seeder
                 'sale_price' => 800,
                 'category_id' => 1,
                 'supplier_id' => 1,
+                'quantity' => 20,
             ],
             [
                 'product_title' => 'Fashionable Jacket',
@@ -31,6 +32,7 @@ class ProductSeeder extends Seeder
                 'sale_price' => 150,
                 'category_id' => 2,
                 'supplier_id' => 2,
+                'quantity' => 20,
             ],
             [
                 'product_title' => 'LED TV 55"',
@@ -40,6 +42,7 @@ class ProductSeeder extends Seeder
                 'sale_price' => 1200,
                 'category_id' => 1,
                 'supplier_id' => 3,
+                'quantity' => 20,
             ],
             [
                 'product_title' => 'Classic Novel Collection',
@@ -49,6 +52,7 @@ class ProductSeeder extends Seeder
                 'sale_price' => 80,
                 'category_id' => 4,
                 'supplier_id' => 4,
+                'quantity' => 20,
             ],
             [
                 'product_title' => 'Running Shoes',
@@ -58,6 +62,7 @@ class ProductSeeder extends Seeder
                 'sale_price' => 120,
                 'category_id' => 5,
                 'supplier_id' => 5,
+                'quantity' => 20,
             ],
             [
                 'product_title' => 'Compact Blender',
@@ -67,6 +72,7 @@ class ProductSeeder extends Seeder
                 'sale_price' => 90,
                 'category_id' => 3,
                 'supplier_id' => 6,
+                'quantity' => 20,
             ],
             [
                 'product_title' => 'Designer Sunglasses',
@@ -76,6 +82,7 @@ class ProductSeeder extends Seeder
                 'sale_price' => 70,
                 'category_id' => 2,
                 'supplier_id' => 2,
+                'quantity' => 20,
             ],
             [
                 'product_title' => 'Wireless Gaming Mouse',
@@ -85,6 +92,7 @@ class ProductSeeder extends Seeder
                 'sale_price' => 80,
                 'category_id' => 1,
                 'supplier_id' => 3,
+                'quantity' => 20,
             ],
             [
                 'product_title' => 'Fitness Tracker Watch',
@@ -94,6 +102,7 @@ class ProductSeeder extends Seeder
                 'sale_price' => 110,
                 'category_id' => 5,
                 'supplier_id' => 5,
+                'quantity' => 20,
             ],
             [
                 'product_title' => 'Cookbook Collection',
@@ -103,6 +112,7 @@ class ProductSeeder extends Seeder
                 'sale_price' => 60,
                 'category_id' => 4,
                 'supplier_id' => 4,
+                'quantity' => 20,
             ],
         ];
 

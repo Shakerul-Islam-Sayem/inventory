@@ -19,8 +19,12 @@ class PDFController extends Controller
             'date' => date('d/m/Y'),
             'categories' => $categories
         ];
-        $pdf = pdf::loadView('admin.PDF', $data);
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadView('admin.pdf.PDF', $data);
+        $pdf->loadView('admin.pdf.inward', $data);
 
-        return $pdf->stream('itsolutionstuff.pdf');
+        return $pdf->stream('combined_pdf.pdf');
     }
+
+
 }

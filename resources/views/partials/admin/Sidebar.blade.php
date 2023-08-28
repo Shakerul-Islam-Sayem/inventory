@@ -27,58 +27,83 @@
                     <span class="hide-menu">INVENTORY</span>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="javascript()" class="nav-link dropdown-toggle" href="#forfreshproducts"
-                        role="button" data-bs-toggle="collapse" data-bs-target="#forfreshproducts" aria-expanded="true"
-                        aria-controls="forfreshproducts">
+                    <a class="sidebar-link"  href="{{ route('inward.index') }}" class="nav-link dropdown-toggle" href="#forinward"
+                        role="button" data-bs-toggle="collapse" data-bs-target="#forinward" aria-expanded="true"
+                        aria-controls="forinward">
                         <span>
                             <i class="ti ti-article"></i>
                         </span>
-                        <span class="hide-menu">Fresh Product</span>
+                        <span class="hide-menu">Inward Product</span>
                     </a>
-                    <div id="forfreshproducts" class="nav-collapse collapse" data-bs-parent="#products"
+                    <div id="forinward" class="nav-collapse collapse" data-bs-parent="#products"
                         hs-parent-area="#products" style="margin-left: 1rem;">
+                        <a class="sidebar-link" href="{{ route('inward.index') }}" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-alert-circle"></i>
+                            </span>
+                            <span class="hide-menu">Inward Index</span>
+                        </a>
                         <a class="sidebar-link" href="{{ route('inward.create') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>
-                            <span class="hide-menu">Inward</span>
+                            <span class="hide-menu">Inward Create</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="{{ route('outward.index') }}" class="nav-link dropdown-toggle" href="#foroutward"
+                        role="button" data-bs-toggle="collapse" data-bs-target="#foroutward" aria-expanded="true"
+                        aria-controls="foroutward">
+                        <span>
+                            <i class="ti ti-article"></i>
+                        </span>
+                        <span class="hide-menu">Outward Product</span>
+                    </a>
+                    <div id="foroutward" class="nav-collapse collapse" data-bs-parent="#products"
+                        hs-parent-area="#products" style="margin-left: 1rem;">
+                        <a class="sidebar-link" href="{{ route('outward.index') }}" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-alert-circle"></i>
+                            </span>
+                            <span class="hide-menu">Outward Index</span>
                         </a>
                         <a class="sidebar-link" href="{{ route('outward.create') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>
-                            <span class="hide-menu">Outward</span>
-                        </a>
-                        <a class="sidebar-link" href="{{ route('return.create') }}" aria-expanded="false">
-                            <span>
-                                <i class="ti ti-alert-circle"></i>
-                            </span>
-                            <span class="hide-menu">Return</span>
+                            <span class="hide-menu">Outward Create</span>
                         </a>
                     </div>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="javascript:void(0)" class="nav-link dropdown-toggle" href="#fordamageproducts"
-                        role="button" data-bs-toggle="collapse" data-bs-target="#fordamageproducts" aria-expanded="true"
-                        aria-controls="fordamageproducts">
+                    <a class="sidebar-link" href="javascript:void(0)" class="nav-link dropdown-toggle" href="#fordamage"
+                        role="button" data-bs-toggle="collapse" data-bs-target="#fordamage" aria-expanded="true"
+                        aria-controls="fordamage">
                         <span>
                             <i class="ti ti-article"></i>
                         </span>
                         <span class="hide-menu">Damage Product</span>
                     </a>
-                    <div id="fordamageproducts" class="nav-collapse collapse" data-bs-parent="#products"
+                    <div id="fordamage" class="nav-collapse collapse" data-bs-parent="#products"
                         hs-parent-area="#products" style="margin-left: 1rem;">
                         <a class="sidebar-link" href="javascript:void(0)" aria-expanded="false">
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>
-                            <span class="hide-menu">Inward</span>
+                            <span class="hide-menu">Damage Inward</span>
                         </a>
                         <a class="sidebar-link" href="javascript:void(0)" aria-expanded="false">
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>
-                            <span class="hide-menu">Outward</span>
+                            <span class="hide-menu">Damage Outward</span>
+                        </a>
+                        <a class="sidebar-link" href="javascript:void(0)" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-alert-circle"></i>
+                            </span>
+                            <span class="hide-menu">Damage Stock</span>
                         </a>
                     </div>
                 </li>

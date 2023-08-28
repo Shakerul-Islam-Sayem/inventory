@@ -28,4 +28,12 @@ class Product extends Model
     public function supplier(): BelongsTo{
         return $this->belongsTo(Supplier::class);
     }
+    public function inwarddetail()
+    {
+        return $this->hasMany(Inwarddetail::class);
+    }
+    public function inward()
+    {
+        return $this->hasMany(Inward::class);
+    }
 }

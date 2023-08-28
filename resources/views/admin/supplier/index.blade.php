@@ -16,15 +16,8 @@
                         <tr>
                             <th scope="col">SL</th>
                             <th scope="col">Supplier Title</th>
-                            {{-- <th scope="col">Owner Name</th>
-                            <th scope="col">Contact Person</th>
-                            <th scope="col">Contact Email</th> --}}
                             <th scope="col">Contact Phone</th>
-                            {{-- <th scope="col">Address</th> --}}
-                            {{-- <th scope="col">Tax ID/VAT Number</th> --}}
-                            {{-- <th scope="col">BIN Number</th> --}}
                             <th scope="col">Supplier Status</th>
-                            {{-- <th scope="col">Notes</th> --}}
                             <th scope="col" class="text-center">Action</th>
                         </tr>
                     </thead>
@@ -33,9 +26,6 @@
                             <tr>
                                 <th scope="row"class="d-none d-xl-table-cell">{{ $k + 1 }}</th>
                                 <td scope="col">{{ $supplier->supplier_title }}</td>
-                                {{-- <td scope="col">{{ $supplier->owner_name }}</td>
-                                <td scope="col">{{ $supplier->contact_person }}</td>
-                                <td scope="col">{{ $supplier->email }}</td> --}}
                                 <td scope="col">{{ $supplier->phone }}</td>
                                 <td>
                                     @if ($supplier->status === 1)
@@ -43,7 +33,6 @@
                                     @else
                                         <span class="badge bg-danger">{{ __('Inactive') }}</span>
                                     @endif
-
                                 </td>
                                 {{-- <td scope="col">{{ $supplier->address }}</td> --}}
                                 {{-- <td scope="col">{{ $supplier->tax }}</td> --}}

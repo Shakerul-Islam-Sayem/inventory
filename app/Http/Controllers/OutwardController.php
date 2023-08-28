@@ -28,7 +28,7 @@ class OutwardController extends Controller
     {
         $suppliers = Supplier::where('status',1)->get();
         $products = Product::all();
-        return view('admin.products.outward',compact('suppliers','products'));
+        return view('admin.outward.create',compact('suppliers','products'));
     }
 
     /**

@@ -33,5 +33,9 @@ class Inward extends Model
     {
         return $this->hasMany(Inwarddetail::class);
     }
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }
 

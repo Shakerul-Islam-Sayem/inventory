@@ -37,7 +37,7 @@
                                             {{ (($product->sale_price - $product->purchase_price) / $product->purchase_price) * 100,2 }}%
                                         </dd>
                                         <dt class="col-sm-3">Quantity</dt>
-                                        <dd class="col-sm-9">{{ $product->quantiy }}</dd>
+                                        <dd class="col-sm-9">{{ $product->quantity }} pcs</dd>
 
                                         <dt class="col-sm-3">Product Category</dt>
                                         <dd class="col-sm-9">{{ $product->category->title }}</dd>
