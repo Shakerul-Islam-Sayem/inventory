@@ -8,24 +8,13 @@
         <div class="card">
             <div class="card-body py-1">
                 <div class="card-header ps-0 bg-white text-center d-flex justify-content-between">
-                    <h2 class=" fw-bolder ">Product Inward List</h2>
+                    <h2 class=" fw-bolder ">Product Return List</h2>
                     <div>
-                        <a href="{{ route('inward.create') }}" class="btn btn-lg btn-primary">Add New</a>
-                        <a  href="{{ route('inward_pdf') }}" class="btn btn-lg btn-primary">Print Invoice</a>
+                        <a href="{{ route('return.create') }}" class="btn btn-lg btn-primary">Add New</a>
+                        {{-- <a  href="{{ route('inward_pdf') }}" class="btn btn-lg btn-primary">Print Invoice</a> --}}
                     </div>
                 </div>
                 <div class="row mb-3 gx-2">
-                    <div class="col-3">
-                        <select aria-label="Default select example" name="inward_id"
-                            class="select2 select2-bootstrap-5 form-select border-dark">
-                            <option value="" disabled selected>Select Inward Id</option>
-                            @forelse ($inwarddetails as $key => $inwarddetail)
-                                <option value="{{ $inwarddetail->id }}">{{ $inwarddetail->inward_id }}</option>
-                            @empty
-                                <option value="1">No Inward</option>
-                            @endforelse
-                        </select>
-                    </div>
                     <div class="col-3">
                         <input class=" form-control border-dark" type="datetime-local" name="date_received" id="">
                     </div>
@@ -43,23 +32,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @php
+                        {{-- @php
                             $totalPurchaseAmount = 0;
-                        @endphp
+                        @endphp --}}
 
-                        @forelse ($inwarddetails as $k => $inwarddetail)
+                        @forelse ($productreturns as $k => $productreturn)
                             <tr class="" style="height: 34px">
                                 <td scope="row">{{ $k + 1 }}</td>
-                                <td scope="col">{{ $inwarddetail->product->product_title }}</td>
-                                <td scope="col">{{ $inwarddetail->purchase_price }}</td>
-                                <td scope="col">{{ $inwarddetail->sale_price }}</td>
-                                <td scope="col">{{ $inwarddetail->quantity }} pcs</td>
-                                <td scope="col">{{ $inwarddetail->inward->date_received }}</td>
+                                <td scope="col">{{ $productreturn->product->product_title }}</td>
+                                <td scope="col">{{ $productreturn->purchase_price }}</td>
+                                <td scope="col">{{ $productreturn->sale_price }}</td>
+                                <td scope="col">{{ $productreturn->quantity }} pcs</td>
+                                <td scope="col">{{ $productreturn->date_received }}</td>
                             </tr>
 
-                            @php
-                                $totalPurchaseAmount += $inwarddetail->purchase_price * $inwarddetail->quantity;
-                            @endphp
+                            {{-- @php
+                                $totalPurchaseAmount += $productreturn->purchase_price * $productreturn->quantity;
+                            @endphp --}}
                         @empty
                             <tr>
                                 <td colspan="6" class="fw-bolder text-center ">{{ __('Data Not Found') }}</td>
@@ -68,7 +57,7 @@
                     </tbody>
                 </table>
                 <div class="text-center">
-                    <h3>Total Purchase Amount: {{ $totalPurchaseAmount }}/-</h3>
+                    {{-- <h3>Total Purchase Amount: {{ $totalPurchaseAmount }}/-</h3> --}}
                 </div>
             </div>
         </div>

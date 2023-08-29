@@ -15,39 +15,46 @@
             <div class="card-body">
                 <div class="container">
                     <div class="row">
-                        @forelse ($outwarddetails as $k => $outwarddetail)
-                    @empty
-                    @endforelse
                         <div class="col-6">
-                            <p style="color: #7e8d9f;font-size: 20px;">Outward >> <strong>ID: #00{{ $outwarddetail->outward_id }}
+                                @forelse ($outwarddetails as $k => $outwarddetail)
+                                <p style="color: #7e8d9f;font-size: 20px;">Outward >> <strong>ID:
+                                    #00{{ $outwarddetail->outward->outward_id }}
                                 </strong></p>
-                            <div class="col-xl-3 float-start">
-                                <a class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"><i
-                                        class="fas fa-print text-primary"></i> Print</a>
-                                <a class="btn btn-light text-capitalize" data-mdb-ripple-color="dark"><i
-                                        class="far fa-file-pdf text-danger"></i> Export</a>
+
+                                <div class="col-xl-3 float-start">
+                                    <a class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"><i
+                                            class="fas fa-print text-primary"></i> Print</a>
+                                    <a class="btn btn-light text-capitalize" data-mdb-ripple-color="dark"><i
+                                            class="far fa-file-pdf text-danger"></i> Export</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6 float-end">
-                            <div class="text-center">
-                                <img src="{{ asset('assets/images/logos/inventory.png') }}" width="180"
-                                    alt="" />
-                                <p class="pt-0">Inventory.com</p>
+                            <div class="col-6 float-end">
+                                <div class="text-center">
+                                    <img src="{{ asset('assets/images/logos/inventory.png') }}" width="180"
+                                        alt="" />
+                                    <p class="pt-0">Inventory.com</p>
+                                </div>
                             </div>
-                        </div>
+
                     </div>
 
                     <div class="container">
                         <div class="row">
                             <div class="col-8">
                                 <ul class="list-unstyled">
-                                    <li class="text-muted">To: <span  style="color:#011a27 ; font-size:20px">{{ $outwarddetail->outward->customer_name }} </span>
+                                    <li class="text-muted">To: <span
+                                            style="color:#011a27 ; font-size:20px">{{ $outwarddetail->outward->customer_name }}
+                                        </span>
                                     </li>
                                     <li class="text-muted">Street, City</li>
                                     <li class="text-muted">State, Country</li>
-                                    <li class="text-muted"><i class="fas fa-phone"></i>Phone: <span  style="color:#011a27 ; font-size:15px">{{ $outwarddetail->outward->customer_phone }} </span></li>
+                                    <li class="text-muted"><i class="fas fa-phone"></i>Phone: <span
+                                            style="color:#011a27 ; font-size:15px">{{ $outwarddetail->outward->customer_phone }}
+                                        </span></li>
                                 </ul>
                             </div>
+                            @empty
+                                    @endforelse
                             <div class="col-4">
                                 <p class="text-muted">Invoice</p>
                                 <ul class="list-unstyled">
@@ -82,6 +89,9 @@
                                 <tbody>
                                     @php
                                         $totalSaleAmount = 0;
+                                        $totalSaleAmountTax = 0;
+                                        $totalDiscountAmount = 0;
+                                        $totalAmount = 0;
                                     @endphp
 
                                     @forelse ($outwarddetails as $k => $outwarddetail)
@@ -100,13 +110,14 @@
 
                                         @php
                                             $totalSaleAmount += $outwarddetail->sale_price * $outwarddetail->quantity;
-                                            $totalSaleAmountTax = $totalSaleAmount * 0.1;
-                                            $totalDiscountAmount = $outwarddetail->outward->discount;
+                                            $totalSaleAmountTax += $totalSaleAmount * 0.1;
+                                            $totalDiscountAmount += $outwarddetail->outward->discount;
                                             $totalAmount = $totalSaleAmount + $totalSaleAmountTax - $totalDiscountAmount;
                                         @endphp
                                     @empty
                                         <tr>
-                                            <td colspan="6" class="fw-bolder text-center ">{{ __('Data Not Found') }}
+                                            <td colspan="6" class="fw-bolder text-center ">
+                                                {{ __('Data Not Found') }}
                                             </td>
                                         </tr>
                                     @endforelse
@@ -118,16 +129,16 @@
                         <div class="row float-end">
                             <div class="col-xl-3">
                                 <ul class="list-unstyled text-end">
-                                    <li class="text-muted fw-bolder ms-3"><span
-                                            class="text-black me-4">SubTotal : </span>{{ $totalSaleAmount }}/-</li>
-                                    <li class="text-muted fw-bolder ms-3 mt-2"><span
-                                            class="text-black me-4">Tax(10%) : </span>{{ $totalSaleAmountTax }}/-
+                                    <li class="text-muted fw-bolder ms-3"><span class="text-black me-4">SubTotal :
+                                        </span>{{ $totalSaleAmount }}/-</li>
+                                    <li class="text-muted fw-bolder ms-3 mt-2"><span class="text-black me-4">Tax(10%) :
+                                        </span>{{ $totalSaleAmountTax }}/-
                                     </li>
                                     <li class="text-muted fw-bolder ms-3 mt-2"><span class="text-black me-4">Discount :
                                         </span>{{ $totalDiscountAmount }}/-
                                     </li>
                                 </ul>
-                                <p class="text-black fw-bolder float-start"><span class="text-black me-3"> Total
+                                <p class="text-black fw-bolder float-end"><span class="text-danger me-3"> Total
                                         Amount : </span><span style="font-size: 23px;">{{ $totalAmount }}/-</span></p>
                             </div>
                         </div>

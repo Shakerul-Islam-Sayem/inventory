@@ -8,7 +8,11 @@ use App\Http\Requests\UpdateProductReturnRequest;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Supplier;
+use App\Http\Controllers\Str;
+use App\Http\Controllers\Request;
 use Illuminate\Support\Facades\Log;
+use Requests;
+use Stringable;
 
 class ProductReturnController extends Controller
 {
@@ -17,7 +21,8 @@ class ProductReturnController extends Controller
      */
     public function index()
     {
-        //
+        $productreturns = productreturn::all();
+        return view('admin.productreturn.index')->with('productreturns',$productreturns);
     }
 
     /**
@@ -26,46 +31,74 @@ class ProductReturnController extends Controller
     public function create()
     {
         $products = Product::all();
-        return view('admin.productreturn.create',compact('products'));
+        return view('admin.productreturn.create', compact('products'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
+    // public function store(StoreProductReturnRequest $request)
+    // {
+    //     dd($request->all());
+    //     $returndata = [
+    //         'return_id' => $request->input("return_id"),
+    //         'date_received' => $request->input('date_received'),
+    //         'comment' => $request->input('comment'),
+
+    //     ];
+    //     $productreturn = ProductReturn::create($returndata);
+
+    //     Log::info($productreturn->id);
+
+    //     foreach ($request->input('product_id') as $index => $product_id) {
+    //         $id = new ProductReturn();
+    //         $id->return_id = $productreturn->id;
+    //         $id->product_id = $product_id;
+    //         $id->purchase_price = $request->input('purchase_price')[$index];
+    //         $id->sale_price = $request->input('sale_price')[$index];
+    //         $id->quantity = $request->input('quantity')[$index];
+
+    //         $p = Product::find($product_id);
+    //         $p->quantity = $p->quantity + $id->quantity;
+    //         $p->save();
+
+    //         $productreturn->productreturns()->save($id);
+    //     }
+
+    //     return redirect()->route('return.index')->with('success', 'Product Return Successfully.');
+    // }
+
     public function store(StoreProductReturnRequest $request)
     {
-        // dd($request->all());
-        $returndata = [
-            'supplier_id' => $request->input('supplier_id'),
+        $returnData = [
             'date_received' => $request->input('date_received'),
-            'payment_method' => $request->input('payment_method'),
-            'trxid' => $request->input('trxid'),
-            'discount' => $request->input('discount'),
             'comment' => $request->input('comment'),
         ];
-        $validatedData = $request->validate([
-            'supplier_id' => 'required',
-            'date_received' => 'required|date',
-        ]);
 
-        $inward = ProductReturn::create($returndata);
+        $product_ids = $request->input('product_id');
+        $purchase_prices = $request->input('purchase_price');
+        $sale_prices = $request->input('sale_price');
+        $quantities = $request->input('quantity');
 
-        Log::info($inward->id);
+        foreach ($product_ids as $index => $product_id) {
+            $returnData['product_id'] = $product_id;
+            $returnData['purchase_price'] = $purchase_prices[$index];
+            $returnData['sale_price'] = $sale_prices[$index];
+            $returnData['quantity'] = $quantities[$index];
 
-        foreach ($request->input('product_id') as $index => $product_id) {
-            $id = new Inwarddetail();
-            $id->product_id = $product_id;
-            $id->purchase_price = $request->input('purchase_price')[$index];
-            $id->sale_price = $request->input('sale_price')[$index];
-            $id->quantity = $request->input('quantity')[$index];
-            $p = Product::find($product_id);
-            $p->quantity = $p->quantity + $id->quantity;
-            $p ->save();
-            $inward->inwarddetails()->save($id);
+            ProductReturn::create($returnData);
+
+            // $p = Product::find($product_id);
+            // $p->quantity = $p->quantity + $returnData->quantity;
+            // $p->save();
+            $product = Product::find($product_id);
+            $product->quantity += $quantities[$index];
+            $product->save();
         }
-        // Inwarddetail::create($productData);
-        return redirect()->route('inward.index')->with('success', 'Inward successfully.');
+
+        return redirect()->route('return.index')->with('success', 'Product Return Successfully.');
     }
+
 
     /**
      * Display the specified resource.

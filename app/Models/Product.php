@@ -41,4 +41,8 @@ class Product extends Model
     {
         return $this->hasMany(Inward::class);
     }
+    public function productreturn()
+    {
+        return $this->hasMany(productreturn::class);
+    }
 }

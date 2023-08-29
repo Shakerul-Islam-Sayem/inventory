@@ -15,10 +15,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger("product_id")->unsigned();
             $table->foreign('product_id')->references('id')->on('products')->onDelete("cascade");
-            $table->bigInteger("category_id")->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete("cascade");
-            $table->bigInteger("supplier_id")->unsigned();
-            $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete("cascade");
+            $table->string('comment')->nullable();
             $table->integer('quantity');
             $table->decimal('purchase_price', 8, 2);
             $table->decimal('sale_price', 8, 2);

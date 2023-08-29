@@ -60,6 +60,7 @@ class InwardController extends Controller
             $id->purchase_price = $request->input('purchase_price')[$index];
             $id->sale_price = $request->input('sale_price')[$index];
             $id->quantity = $request->input('quantity')[$index];
+
             $p = Product::find($product_id);
             $p->quantity = $p->quantity + $id->quantity;
             $p ->save();

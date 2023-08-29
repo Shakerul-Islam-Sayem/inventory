@@ -114,6 +114,16 @@ class ProductSeeder extends Seeder
                 'supplier_id' => 4,
                 'quantity' => 20,
             ],
+            [
+                'product_title' => 'Headphone WI 3v',
+                'product_description' => 'Headphone WI 3v Assortment of cookbooks for culinary enthusiasts.',
+                'product_sku' => 'HPWI3V',
+                'purchase_price' => 350,
+                'sale_price' => 410,
+                'category_id' => 2,
+                'supplier_id' => 3,
+                'quantity' => 20,
+            ],
         ];
 
         foreach ($products as $product) {

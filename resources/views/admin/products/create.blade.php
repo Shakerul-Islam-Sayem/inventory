@@ -6,8 +6,8 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <div class="container mt-1">
-                    <h2>Add Product</h2>
+                <div class="container">
+                    <h2 class="mb-3 text-center text-decoration-underline">New SKU Create</h2>
                     <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">

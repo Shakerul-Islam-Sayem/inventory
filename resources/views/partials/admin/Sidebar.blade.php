@@ -41,7 +41,7 @@
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>
-                            <span class="hide-menu">Inward Index</span>
+                            <span class="hide-menu">Inward List</span>
                         </a>
                         <a class="sidebar-link" href="{{ route('inward.create') }}" aria-expanded="false">
                             <span>
@@ -66,7 +66,7 @@
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>
-                            <span class="hide-menu">Outward Index</span>
+                            <span class="hide-menu">Outward List</span>
                         </a>
                         <a class="sidebar-link" href="{{ route('outward.create') }}" aria-expanded="false">
                             <span>
@@ -87,17 +87,17 @@
                     </a>
                     <div id="forreturn" class="nav-collapse collapse" data-bs-parent="#products"
                         hs-parent-area="#products" style="margin-left: 1rem;">
-                        <a class="sidebar-link" href="{{ route('return.create') }}" aria-expanded="false">
-                            <span>
-                                <i class="ti ti-alert-circle"></i>
-                            </span>
-                            <span class="hide-menu">Return Create</span>
-                        </a>
                         <a class="sidebar-link" href="{{ route('return.index') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>
                             <span class="hide-menu">Return List</span>
+                        </a>
+                        <a class="sidebar-link" href="{{ route('return.create') }}" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-alert-circle"></i>
+                            </span>
+                            <span class="hide-menu">Return Create</span>
                         </a>
                     </div>
                 </li>
@@ -142,7 +142,7 @@
                 </li>
                 <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-                    <span class="hide-menu">PRODUCTS</span>
+                    <span class="hide-menu">SKU & CATEGORY</span>
                 </li>
                 <li class="sidebar-item submenu">
                     <a class="sidebar-link" href="{{ route('product.index') }}" class="nav-link dropdown-toggle"
@@ -151,7 +151,7 @@
                         <span>
                             <i class="ti ti-article"></i>
                         </span>
-                        <span class="hide-menu">Product List</span>
+                        <span class="hide-menu">SKU</span>
                     </a>
                     <div id="forproductslist" class="nav-collapse collapse" data-bs-parent="#productslist"
                         hs-parent-area="#productslist" style="margin-left: 1rem;">
@@ -159,13 +159,13 @@
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>
-                            <span class="hide-menu">Product List</span>
+                            <span class="hide-menu">SKU List</span>
                         </a>
                         <a class="sidebar-link" href="{{ route('product.create') }}" aria-expanded="false">
                             <span>
                                 <i class="ti ti-alert-circle"></i>
                             </span>
-                            <span class="hide-menu">Product Create</span>
+                            <span class="hide-menu">SKU Create</span>
                         </a>
                     </div>
                 </li>

@@ -12,8 +12,7 @@
                     @csrf
                     <div class="row mb-2 gx-2">
                         <div class="col-3">
-                            <input class=" form-control border-dark" type="datetime-local" name="date_received"
-                                id="">
+                            <input class=" form-control border-dark" type="datetime-local" name="date_received">
                         </div>
                         <div class="col-3">
                             <input class=" form-control border-dark" type="text" name="comment" placeholder="Comment">
@@ -48,7 +47,7 @@
                                     <td><input class="form-control sale-price" type="text" name="sale_price[]"
                                             placeholder="Selling Price">
                                     </td>
-                                    <td><input class="form-control" type="text" name="quantity[]" id="quantity"
+                                    <td><input class="form-control" type="number" name="quantity[]" id="quantity"
                                             placeholder="Quantity">
                                     </td>
                                     <td class="d-flex">

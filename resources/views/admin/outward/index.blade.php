@@ -11,7 +11,7 @@
                     <h2 class=" fw-bolder ">Product Outward List</h2>
                     <div>
                         <a href="{{ route('outward.create') }}" class="btn btn-lg btn-primary">Add New</a>
-                        <a  href="{{ route('outward_pdf') }}" class="btn btn-lg btn-primary">Print PDF</a>
+                        <a  href="{{ route('outward_pdf') }}" class="btn btn-lg btn-primary">Print Invoice</a>
                     </div>
                 </div>
                 <div class="row mb-3 gx-2">

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->decimal('sale_price', 10, 2);
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('supplier_id');
-            $table->integer('quantity');
+            $table->integer('quantity')->nullable();
             $table->json('product_image')->nullable();
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

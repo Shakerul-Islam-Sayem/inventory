@@ -8,23 +8,18 @@
         <div class="card">
             <div class="card-body py-1">
                 <div class="card-header ps-0 bg-white text-center d-flex justify-content-between">
-                    <h2 class=" fw-bolder ">Product List</h2>
-                    <a href="{{route('product.create')}}" class="btn btn-lg btn-primary">Add New</a>
+                    <h2 class=" fw-bolder ">SKU List</h2>
+                    <a href="{{ route('product.create') }}" class="btn btn-lg btn-primary">Add New</a>
                 </div>
                 <table class="table data-table py-5">
                     <thead class="table-dark table-responsive">
                         <tr>
                             <th scope="col">SL</th>
+                            <th scope="col">SKU</th>
                             <th scope="col">Product Title</th>
-                            {{-- <th scope="col">Product Description</th> --}}
-                            {{-- <th scope="col">Product SKU</th> --}}
                             <th scope="col">Purchase Price</th>
                             <th scope="col">Sale Price</th>
-                            {{-- <th scope="col">Profit</th> --}}
-                            {{-- <th scope="col">Profit Margin</th> --}}
-                            {{-- <th scope="col">Product Category</th> --}}
                             <th scope="col">Quantity</th>
-                            <th scope="col">Product Image</th>
                             <th scope="col" class="text-center fw-bolder">Action</th>
                         </tr>
                     </thead>
@@ -32,27 +27,21 @@
                         @forelse ($products as $k => $product)
                             <tr>
                                 <td scope="row">{{ $k + 1 }}</td>
+                                <td scope="col">{{ $product->product_sku }}</td>
                                 <td scope="col">{{ $product->product_title }}</td>
-                                {{-- <td scope="col">{{ $product->product_description }}</td> --}}
-                                {{-- <td scope="col">{{ $product->product_sku }}</td> --}}
                                 <td scope="col">{{ $product->purchase_price }}</td>
                                 <td scope="col">{{ $product->sale_price }}</td>
-                                {{-- <td scope="col">{{ $product->sale_price - $product->purchase_price }}</td> --}}
-                                {{-- <td scope="col"> --}}
-                                    {{-- {{ (($product->sale_price - $product->purchase_price) / $product->purchase_price) * 100 }}% --}}
+                                <td scope="col">{{ isset($product->quantity) ? $product->quantity . ' pcs' : '0 pcs' }}
                                 </td>
-                                {{-- <td scope="col">{{ $product->category->title }}</td> --}}
-                                <td scope="col">{{ $product->quantity }} pcs</td>
-                                <td scope="col">Product Image</td>
                                 <td scope="col" class="d-flex justify-content-center">
-                                    <a href="{{ route('product.show', $product->id) }}" class="btn btn-info me-1"><i
+                                    <a href="{{ route('product.show', $product->id) }}" class="btn btn-sm btn-info me-1"><i
                                             class="fa-solid fa-eye"></i></a>
-                                    <a href="{{ route('product.edit', $product->id) }}" class="btn btn-primary me-1"><i
-                                            class="fa-regular fa-pen-to-square"></i></a>
+                                    <a href="{{ route('product.edit', $product->id) }}"
+                                        class="btn btn-sm btn-primary me-1"><i class="fa-regular fa-pen-to-square"></i></a>
                                     <form action="{{ route('product.destroy', $product->id) }}" method="POST">
                                         @csrf
                                         @method('delete')
-                                        <a href="#" onclick="showConfirmation(this)" class="btn btn-danger "><i
+                                        <a href="#" onclick="showConfirmation(this)" class="btn btn-sm btn-danger "><i
                                                 class="fa-regular fa-trash-can"></i></a>
                                     </form>
                                 </td>
@@ -64,6 +53,10 @@
                         @endforelse
                     </tbody>
                 </table>
+                <div class="pagination justify-content-center">
+                    {{ $products->links('pagination.custom') }}
+                </div>
+
             </div>
         </div>
     </div>

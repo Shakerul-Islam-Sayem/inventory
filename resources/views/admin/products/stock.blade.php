@@ -9,8 +9,8 @@
                 <div class="text-center mb-4">
                     <h2>Product Stock</h2>
                 </div>
-                <div class="table-responsive">
-                    <table id="myTable" class="table table-bordered table-hover table-striped">
+                <div class="">
+                    <table id="myTable" class="table table-bordered table-hover table-striped table-responsive">
                         <thead class="table-dark">
                             <tr>
                                 <th scope="col">SL</th>
