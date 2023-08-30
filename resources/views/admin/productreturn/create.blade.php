@@ -7,7 +7,7 @@
         @include('partials.admin.flash')
         <div class="card">
             <div class="card-body">
-                <h2 class="text-center mb-3">Product Return</h2>
+                <h2 class="mb-3 text-center text-decoration-underline fw-bolder">Product Return</h2>
                 <form action="{{ route('return.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row mb-2 gx-2">

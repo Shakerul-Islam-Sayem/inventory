@@ -16,9 +16,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-6">
-                                @forelse ($outwarddetails as $k => $outwarddetail)
-                                <p style="color: #7e8d9f;font-size: 20px;">Outward >> <strong>ID:
-                                    #00{{ $outwarddetail->outward->outward_id }}
+                                {{-- @forelse ($outwarddetails as $k => $outwarddetail) --}}
+                                <p style="color: #7e8d9f;font-size: 20px;">Outward - <strong>ID: #001
+                                    {{-- #00{{ $outwarddetail->outward->outward_id }} --}}
                                 </strong></p>
 
                                 <div class="col-xl-3 float-start">
@@ -43,18 +43,16 @@
                             <div class="col-8">
                                 <ul class="list-unstyled">
                                     <li class="text-muted">To: <span
-                                            style="color:#011a27 ; font-size:20px">{{ $outwarddetail->outward->customer_name }}
+                                            style="color:#011a27 ; font-size:20px">Alex
                                         </span>
                                     </li>
                                     <li class="text-muted">Street, City</li>
                                     <li class="text-muted">State, Country</li>
                                     <li class="text-muted"><i class="fas fa-phone"></i>Phone: <span
-                                            style="color:#011a27 ; font-size:15px">{{ $outwarddetail->outward->customer_phone }}
+                                            style="color:#011a27 ; font-size:15px">01715152212
                                         </span></li>
                                 </ul>
                             </div>
-                            @empty
-                                    @endforelse
                             <div class="col-4">
                                 <p class="text-muted">Invoice</p>
                                 <ul class="list-unstyled">

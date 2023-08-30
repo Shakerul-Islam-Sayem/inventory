@@ -105,11 +105,6 @@ yarn
 5. Generate `Vite` serve manifest:
 ###### Using npm:
 ```bash
-npm run dev
-```
-or,
-###### using npm build
-```bash
 npm run build
 ```
 or,
@@ -117,6 +112,7 @@ or,
 ```bash
 yarn dev
 ```
+
 6. Create a new MySQL database for inventory and update the `.env` file with your database credentials:
 ```bash
 cp .env.example .env

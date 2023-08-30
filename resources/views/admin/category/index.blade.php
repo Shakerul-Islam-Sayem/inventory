@@ -9,7 +9,7 @@
             <div class="card-body">
                 <table class="table py-5">
                     <div class="d-flex justify-content-between my-2">
-                        <h2>Categories List</h2>
+                        <h2 class="mb-3 text-center text-decoration-underline fw-bolder">Categories List</h2>
                         <a href="{{ route('category.create') }}" class="btn btn-info p-2 m-2"><i class="fa-solid fa-plus"></i>
                             Add New Category</a>
                     </div>

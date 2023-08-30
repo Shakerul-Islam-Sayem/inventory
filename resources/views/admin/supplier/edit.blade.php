@@ -9,7 +9,7 @@
                 <form action="{{ route('supplier.update',$supplier->id) }}" method="post">
                     @csrf
                     @method('put')
-                    <h2>Supllier Edit</h2>
+                    <h2 class="mb-3 text-center text-decoration-underline fw-bolder">Supllier Edit</h2>
                     {{-- <div class="mb-3">
                         <label for="supplierId" hidden class="form-label">Supplier ID</label>
                         <input type="text" hidden class="form-control" id="supplierId" name="supplierId">

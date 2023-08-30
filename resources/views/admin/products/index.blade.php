@@ -8,7 +8,7 @@
         <div class="card">
             <div class="card-body py-1">
                 <div class="card-header ps-0 bg-white text-center d-flex justify-content-between">
-                    <h2 class=" fw-bolder ">SKU List</h2>
+                    <h2 class="mb-3 text-center text-decoration-underline fw-bolder">SKU List</h2>
                     <a href="{{ route('product.create') }}" class="btn btn-lg btn-primary">Add New</a>
                 </div>
                 <table class="table data-table py-5">

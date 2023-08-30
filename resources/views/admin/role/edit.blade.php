@@ -11,7 +11,7 @@
                         @csrf
                         @method('put')
                         <div class="">
-                            <h2 class="mb-3">{{ __('Update Existing Role') }}</h2>
+                            <h2 class="mb-3 text-center text-decoration-underline fw-bolder">{{ __('Update Existing Role') }}</h2>
                         </div>
                         <div class="mb-3">
                             <label for="roleName" class="form-label">Role Title</label>

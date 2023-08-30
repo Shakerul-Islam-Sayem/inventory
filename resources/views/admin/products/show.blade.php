@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="card-header">
-                    <h2>Pruduct Details</h2>
+                    <h2 class="mb-3 text-center text-decoration-underline fw-bolder">Pruduct Details</h2>
                 </div>
                 <table class="table data-table py-5">
                     <tbody>

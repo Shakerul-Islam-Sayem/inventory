@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="text-center mb-4">
-                    <h2>Product Stock</h2>
+                    <h2 class="mb-3 text-center text-decoration-underline fw-bolder">Product Stock</h2>
                 </div>
                 <div class="">
                     <table id="myTable" class="table table-bordered table-hover table-striped table-responsive">

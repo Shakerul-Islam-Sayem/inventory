@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="container mt-5">
-                    <h2>Create User Role</h2>
+                    <h2 class="mb-3 text-center text-decoration-underline fw-bolder">Create User Role</h2>
                     <form action="{{route('roles.store')}}" method="POST" id="createUserRoleForm" onsubmit="handleFormSubmission(event, this)">
                         @csrf
                         <div class="mb-3">
@@ -46,7 +46,7 @@
   <script>
   function handleFormSubmission(event, t) {
       event.preventDefault();
-  
+
       Swal.fire({
           title: 'Are you sure?',
           text: 'This action is irreversible!',
@@ -62,7 +62,7 @@
       });
   }
   </script>
-  
-  
-  
+
+
+
 @endsection

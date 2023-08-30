@@ -16,12 +16,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-6">
-                            @forelse ($inwarddetails as $k => $inwarddetail)
-                            <p style="color: #7e8d9f;font-size: 20px;">Inward >> <strong>ID:
-                                #00{{ $inwarddetail->inward->inward_id }}
-
-                            @empty
-                            @endforelse
+                            {{-- @forelse ($inwarddetails as $k => $inwarddetail) --}}
+                            <p style="color: #7e8d9f;font-size: 20px;">Inward - <strong>ID: #001
+                            {{-- @empty
+                            @endforelse --}}
                             </strong></p>
                             <div class="col-xl-3 float-start">
                                 <a class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"><i
@@ -44,7 +42,7 @@
                             <div class="col-8">
                                 <ul class="list-unstyled">
                                     <li class="text-muted">From: <span
-                                            style="color:#5d9fc5 ;">{{ $inwarddetail->inward->supplier_id }}</span></li>
+                                            style="color:#5d9fc5 ;">Alex </span></li>
                                     <li class="text-muted">Street, City</li>
                                     <li class="text-muted">State, Country</li>
                                     <li class="text-muted"><i class="fas fa-phone"></i> 123-456-789</li>

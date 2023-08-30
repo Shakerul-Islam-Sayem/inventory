@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="container mt-1">
-                    <h2>Add Product</h2>
+                    <h2 classclass="mb-3 text-center text-decoration-underline fw-bolder">Add Product</h2>
                     <form action="{{ route('product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('put')
@@ -48,7 +48,7 @@
                                 @empty
                                 <option value="" disabled selected>Select a category</option>
                                 @endforelse
-                                
+
                             </select>
 
                             {{-- <select class="form-control" id="product-category" name="category_id">

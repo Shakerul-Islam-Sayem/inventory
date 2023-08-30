@@ -8,7 +8,7 @@
         <div class="card">
             <div class="card-body py-5">
                 <div class="card-title mb-3 d-flex justify-content-between">
-                    <h2 class="">Supplier List</h2>
+                    <h2 class="mb-3 text-center text-decoration-underline fw-bolder">Supplier List</h2>
                     <a href="{{ route('supplier.create') }}" class="btn btn-info ">+ Add New Supplier</a>
                 </div>
                 <table class="table data-table py-1">

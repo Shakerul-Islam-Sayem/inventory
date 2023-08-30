@@ -31,7 +31,7 @@
                         role="button" data-bs-toggle="collapse" data-bs-target="#forinward" aria-expanded="true"
                         aria-controls="forinward">
                         <span>
-                            <i class="fa-solid fa-file-import"></i>
+                            <i class="fa-solid fa-file-import fa-lg"></i>
                         </span>
                         <span class="hide-menu">Inward Product</span>
                     </a>
@@ -56,7 +56,7 @@
                         role="button" data-bs-toggle="collapse" data-bs-target="#foroutward" aria-expanded="true"
                         aria-controls="foroutward">
                         <span>
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            <i class="fa-solid fa-arrow-up-right-from-square fa-lg"></i>
                         </span>
                         <span class="hide-menu">Outward Product</span>
                     </a>
@@ -81,7 +81,7 @@
                         role="button" data-bs-toggle="collapse" data-bs-target="#forreturn" aria-expanded="true"
                         aria-controls="forreturn">
                         <span>
-                            <i class="ti ti-article"></i>
+                            <i class="fa-solid fa-rotate-left fa-lg"></i>
                         </span>
                         <span class="hide-menu">Return Product</span>
                     </a>
@@ -106,7 +106,7 @@
                         role="button" data-bs-toggle="collapse" data-bs-target="#fordamage" aria-expanded="true"
                         aria-controls="fordamage">
                         <span>
-                            <i class="fa-solid fa-trash-arrow-up"></i>
+                            <i class="fa-regular fa-trash-can fa-lg"></i>
                         </span>
                         <span class="hide-menu">Damage Product</span>
                     </a>
@@ -137,7 +137,7 @@
                         <span>
                             <i class="fa-solid fa-cubes-stacked"></i>
                         </span>
-                        <span class="hide-menu">Stock</span>
+                        <span class="hide-menu">Fresh Stock</span>
                     </a>
                 </li>
                 <li class="nav-small-cap">
@@ -157,13 +157,13 @@
                         hs-parent-area="#productslist" style="margin-left: 1rem;">
                         <a class="sidebar-link" href="{{ route('product.index') }}" aria-expanded="false">
                             <span>
-                                <i class="ti ti-align-justify"></i>
+                                <i class="ti ti-align-left"></i>
                             </span>
                             <span class="hide-menu">SKU List</span>
                         </a>
                         <a class="sidebar-link" href="{{ route('product.create') }}" aria-expanded="false">
                             <span>
-                                <i class="ti ti-alert-circle"></i>
+                                <i class="ti ti-plus"></i>
                             </span>
                             <span class="hide-menu">SKU Create</span>
                         </a>

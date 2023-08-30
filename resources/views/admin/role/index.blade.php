@@ -9,7 +9,7 @@
             <div class="card-body">
                 <div class="container rounded">
                     <div class=" card-header ps-0 bg-white mb-3 d-flex justify-content-between">
-                        <h2 class="">User Roles</h2>
+                        <h2 class="mb-3 text-center text-decoration-underline fw-bolder">User Roles</h2>
                         <a href="{{ route('roles.create') }}" class="btn btn-info "> <i class="fas fa-plus"></i> Add New Role</a>
                     </div>
                     <table class="table table-striped table-hover table-responsive">

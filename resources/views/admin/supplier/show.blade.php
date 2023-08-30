@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="card-header bg-white ps-0">
-                    <h2>Supplier Information</h2>
+                    <h2 class="mb-3 text-center text-decoration-underline fw-bolder">Supplier Information</h2>
                 </div>
                 <dl class="row">
                     <dt class="col-sm-3">Supplier Title</dt>

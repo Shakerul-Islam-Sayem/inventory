@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="container">
-                    <h1>Create Category</h1>
+                    <h1 class="mb-3 text-center text-decoration-underline">Create Category</h1>
                     <form action="{{ route('category.store') }}" method="post">
                         @csrf
                         <div class="mb-3">

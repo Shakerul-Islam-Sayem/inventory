@@ -20,9 +20,10 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::paginate(10);
-    return view('admin.products.index')->with('products', $products);
+        return view('admin.products.index')->with('products', $products);
     }
-    public function product(){
+    public function product()
+    {
         return response()->json(Product::all());
     }
 
@@ -31,9 +32,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::where('status',1)->get();
-        $suppliers = Supplier::where('status',1)->get();
-        return view('admin.products.create',compact('categories','suppliers'));
+        $categories = Category::where('status', 1)->get();
+        $suppliers = Supplier::where('status', 1)->get();
+        return view('admin.products.create', compact('categories', 'suppliers'));
     }
 
     /**
@@ -43,7 +44,7 @@ class ProductController extends Controller
     {
         // dd($request);
         Product::create($request->all());
-        return redirect()->route('product.index') ->with("success", "Product Created.");
+        return redirect()->route('product.index')->with("success", "Product Created.");
 
         // $image = $request->file;
         // $image = time()+"."+$image->getClint;

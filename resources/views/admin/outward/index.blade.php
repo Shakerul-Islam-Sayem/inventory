@@ -8,7 +8,7 @@
         <div class="card">
             <div class="card-body py-1">
                 <div class="card-header ps-0 bg-white text-center d-flex justify-content-between">
-                    <h2 class=" fw-bolder ">Product Outward List</h2>
+                    <h2 class="mb-3 text-center text-decoration-underline fw-bolder">Product Outward List</h2>
                     <div>
                         <a href="{{ route('outward.create') }}" class="btn btn-lg btn-primary">Add New</a>
                         <a  href="{{ route('outward_pdf') }}" class="btn btn-lg btn-primary">Print Invoice</a>
