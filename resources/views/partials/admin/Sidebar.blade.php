@@ -31,7 +31,7 @@
                         role="button" data-bs-toggle="collapse" data-bs-target="#forinward" aria-expanded="true"
                         aria-controls="forinward">
                         <span>
-                            <i class="ti ti-article"></i>
+                            <i class="fa-solid fa-file-import"></i>
                         </span>
                         <span class="hide-menu">Inward Product</span>
                     </a>
@@ -39,13 +39,13 @@
                         hs-parent-area="#products" style="margin-left: 1rem;">
                         <a class="sidebar-link" href="{{ route('inward.index') }}" aria-expanded="false">
                             <span>
-                                <i class="ti ti-alert-circle"></i>
+                                <i class="ti ti-align-left"></i>
                             </span>
                             <span class="hide-menu">Inward List</span>
                         </a>
                         <a class="sidebar-link" href="{{ route('inward.create') }}" aria-expanded="false">
                             <span>
-                                <i class="ti ti-alert-circle"></i>
+                                <i class="ti ti-plus"></i>
                             </span>
                             <span class="hide-menu">Inward Create</span>
                         </a>
@@ -56,7 +56,7 @@
                         role="button" data-bs-toggle="collapse" data-bs-target="#foroutward" aria-expanded="true"
                         aria-controls="foroutward">
                         <span>
-                            <i class="ti ti-article"></i>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         </span>
                         <span class="hide-menu">Outward Product</span>
                     </a>
@@ -64,13 +64,13 @@
                         hs-parent-area="#products" style="margin-left: 1rem;">
                         <a class="sidebar-link" href="{{ route('outward.index') }}" aria-expanded="false">
                             <span>
-                                <i class="ti ti-alert-circle"></i>
+                                <i class="ti ti-align-left"></i>
                             </span>
                             <span class="hide-menu">Outward List</span>
                         </a>
                         <a class="sidebar-link" href="{{ route('outward.create') }}" aria-expanded="false">
                             <span>
-                                <i class="ti ti-alert-circle"></i>
+                                <i class="ti ti-plus"></i>
                             </span>
                             <span class="hide-menu">Outward Create</span>
                         </a>
@@ -89,13 +89,13 @@
                         hs-parent-area="#products" style="margin-left: 1rem;">
                         <a class="sidebar-link" href="{{ route('return.index') }}" aria-expanded="false">
                             <span>
-                                <i class="ti ti-alert-circle"></i>
+                                <i class="ti ti-align-left"></i>
                             </span>
                             <span class="hide-menu">Return List</span>
                         </a>
                         <a class="sidebar-link" href="{{ route('return.create') }}" aria-expanded="false">
                             <span>
-                                <i class="ti ti-alert-circle"></i>
+                                <i class="ti ti-plus"></i>
                             </span>
                             <span class="hide-menu">Return Create</span>
                         </a>
@@ -106,7 +106,7 @@
                         role="button" data-bs-toggle="collapse" data-bs-target="#fordamage" aria-expanded="true"
                         aria-controls="fordamage">
                         <span>
-                            <i class="ti ti-article"></i>
+                            <i class="fa-solid fa-trash-arrow-up"></i>
                         </span>
                         <span class="hide-menu">Damage Product</span>
                     </a>
@@ -114,19 +114,19 @@
                         hs-parent-area="#products" style="margin-left: 1rem;">
                         <a class="sidebar-link" href="javascript:void(0)" aria-expanded="false">
                             <span>
-                                <i class="ti ti-alert-circle"></i>
+                                <i class="ti ti-align-left"></i>
                             </span>
                             <span class="hide-menu">Damage Inward</span>
                         </a>
                         <a class="sidebar-link" href="javascript:void(0)" aria-expanded="false">
                             <span>
-                                <i class="ti ti-alert-circle"></i>
+                                <i class="ti ti-plus"></i>
                             </span>
                             <span class="hide-menu">Damage Outward</span>
                         </a>
                         <a class="sidebar-link" href="javascript:void(0)" aria-expanded="false">
                             <span>
-                                <i class="ti ti-alert-circle"></i>
+                                <i class="fa-solid fa-cubes-stacked"></i>
                             </span>
                             <span class="hide-menu">Damage Stock</span>
                         </a>
@@ -135,7 +135,7 @@
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{ route('stock.index') }}" aria-expanded="false">
                         <span>
-                            <i class="ti ti-typography"></i>
+                            <i class="fa-solid fa-cubes-stacked"></i>
                         </span>
                         <span class="hide-menu">Stock</span>
                     </a>
@@ -157,7 +157,7 @@
                         hs-parent-area="#productslist" style="margin-left: 1rem;">
                         <a class="sidebar-link" href="{{ route('product.index') }}" aria-expanded="false">
                             <span>
-                                <i class="ti ti-alert-circle"></i>
+                                <i class="ti ti-align-justify"></i>
                             </span>
                             <span class="hide-menu">SKU List</span>
                         </a>
@@ -182,7 +182,7 @@
                         hs-parent-area="#category" style="margin-left: 1rem;">
                         <a class="sidebar-link" href="{{ route('category.index') }}" aria-expanded="false">
                             <span>
-                                <i class="ti ti-alert-circle"></i>
+                                <i class="ti ti-list"></i>
                             </span>
                             <span class="hide-menu">Category List</span>
                         </a>
@@ -223,7 +223,7 @@
                         href="#forrole" role="button" data-bs-toggle="collapse" data-bs-target="#forrole"
                         aria-expanded="true" aria-controls="forrole">
                         <span>
-                            <i class="ti ti-article"></i>
+                            <i class="ti ti-user"></i>
                         </span>
                         <span class="hide-menu">Role</span>
                     </a>
@@ -231,13 +231,13 @@
                         style="margin-left: 1rem;">
                         <a class="sidebar-link" href="{{ route('roles.index') }}" aria-expanded="false">
                             <span>
-                                <i class="ti ti-alert-circle"></i>
+                                <i class="ti ti-list"></i>
                             </span>
                             <span class="hide-menu">Role List</span>
                         </a>
                         <a class="sidebar-link" href="{{ route('roles.create') }}" aria-expanded="false">
                             <span>
-                                <i class="ti ti-alert-circle"></i>
+                                <i class="ti ti-user"></i>
                             </span>
                             <span class="hide-menu">Role Create</span>
                         </a>
@@ -260,7 +260,7 @@
                         <span class="hide-menu">Register</span>
                     </a>
                 </li>
-                <li class="nav-small-cap">
+                {{-- <li class="nav-small-cap">
                     <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
                     <span class="hide-menu">EXTRA</span>
                 </li>
@@ -271,7 +271,7 @@
                         </span>
                         <span class="hide-menu">Sample Page</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </nav>
     </div>

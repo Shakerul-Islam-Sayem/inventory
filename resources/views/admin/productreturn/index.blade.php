@@ -16,7 +16,7 @@
                 </div>
                 <div class="row mb-3 gx-2">
                     <div class="col-3">
-                        <input class=" form-control border-dark" type="datetime-local" name="date_received" id="">
+                        <input class=" form-control border-dark" type="datetime-local" name="date_received" value="{{ date('Y-m-d\TH:i') }}" id="">
                     </div>
                 </div>
 

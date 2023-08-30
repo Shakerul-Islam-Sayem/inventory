@@ -69,6 +69,16 @@ class InwardController extends Controller
         // Inwarddetail::create($productData);
         return redirect()->route('inward.index')->with('success', 'Inward successfully.');
     }
+    public function getInwardDetails(Request $request)
+    {
+        $selectedDate = $request->input('date');
+
+        // Fetch new data based on the selected date
+        $inwarddetails = Inwarddetail::whereDate('created_at', $selectedDate)->get();
+
+        // Return the updated table rows
+        return view('admin.inward.index', compact('inwarddetails'));
+    }
 
     public function show(Inward $inward)
     {

@@ -44,6 +44,8 @@ Route::resource('supplier', SupplierController::class);
 Route::resource('roles', RoleController::class);
 Route::resource('product', ProductController::class);
 Route::resource('inward', InwardController::class);
+Route::get('/get-inwarddetails', [InwardController::class, 'getInwardDetails']);
+
 Route::resource('outward', OutwardController::class);
 Route::resource('return', ProductReturnController::class);
 Route::resource('stock', StockController::class);

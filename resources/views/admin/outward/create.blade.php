@@ -20,7 +20,7 @@
                                 placeholder="Customer Phone">
                         </div>
                         <div class="col-3">
-                            <input class=" form-control border-dark" type="datetime-local" name="date_received"
+                            <input class=" form-control border-dark" type="datetime-local" name="date_received" value="{{ date('Y-m-d\TH:i') }}"
                                 id="">
                         </div>
                     </div>

@@ -23,8 +23,7 @@
                             </select>
                         </div>
                         <div class="col-3">
-                            <input class=" form-control border-dark" type="datetime-local" name="date_received"
-                                id="">
+                            <input class="form-control border-dark" type="datetime-local" name="date_received" value="{{ date('Y-m-d\TH:i') }}">
                         </div>
                         <div class="col-5 d-flex align-items-center">
                             <input class="form-control border-dark" type="file" name="invoice_image" id="formFile"

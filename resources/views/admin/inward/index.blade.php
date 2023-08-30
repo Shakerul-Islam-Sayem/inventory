@@ -27,7 +27,7 @@
                         </select>
                     </div>
                     <div class="col-3">
-                        <input class=" form-control border-dark" type="datetime-local" name="date_received" id="">
+                        <input class="form-control border-dark" type="datetime-local" name="date_received" value="{{ date('Y-m-d\TH:i') }}" id="date_received_input">
                     </div>
                 </div>
 
@@ -95,5 +95,29 @@
     <!-- Include jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <script></script>
+    <script>
+        $(document).ready(function() {
+            // Attach an event listener to the date input
+            $("#date_received_input").on("change", function() {
+                var selectedDate = $(this).val();
+
+                // You can now use 'selectedDate' to filter and update the table content
+                // For example, send an AJAX request to the server to get updated data
+
+                // Example: Fetch new data based on the selected date using AJAX
+                $.ajax({
+                    url: '/get-inwarddetails', // Replace with the actual route
+                    data: { date: selectedDate },
+                    success: function(data) {
+                        // Update the table with new data
+                        $(".data-table tbody").html(data);
+                    },
+                    error: function() {
+                        alert("Error fetching data.");
+                    }
+                });
+            });
+        });
+        </script>
+
 @endsection
