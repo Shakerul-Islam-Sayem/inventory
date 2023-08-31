@@ -11,7 +11,7 @@
                     <h2 class="mb-3 text-center text-decoration-underline fw-bolder">Product Inward List</h2>
                     <div>
                         <a href="{{ route('inward.create') }}" class="btn btn-lg btn-primary">Add New</a>
-                        <a  href="{{ route('inward_pdf') }}" class="btn btn-lg btn-primary">Print Invoice</a>
+                        <a href="{{ route('inward_pdf') }}" class="btn btn-lg btn-primary">Print Invoice</a>
                     </div>
                 </div>
                 <div class="row mb-3 gx-2">
@@ -19,16 +19,34 @@
                         <select aria-label="Default select example" name="inward_id"
                             class="select2 select2-bootstrap-5 form-select border-dark">
                             <option value="" disabled selected>Select Inward Id</option>
+                            @php
+                                $addedIds = [];
+                            @endphp
                             @forelse ($inwarddetails as $key => $inwarddetail)
-                                <option value="{{ $inwarddetail->id }}">{{ $inwarddetail->inward_id }}</option>
+                                @if (!in_array($inwarddetail->inward_id, $addedIds))
+                                    <option value="{{ $inwarddetail->id }}">{{ $inwarddetail->inward_id }}</option>
+                                    @php
+                                        $addedIds[] = $inwarddetail->inward_id;
+                                    @endphp
+                                @endif
                             @empty
                                 <option value="1">No Inward</option>
                             @endforelse
                         </select>
+
                     </div>
-                    <div class="col-3">
-                        <input class="form-control border-dark" type="datetime-local" name="date_received" value="{{ date('Y-m-d\TH:i') }}" id="date_received_input">
+                    <div class="col-4">
+                        <form class="d-flex gx-3" action="{{ route('inward.search') }}" method="POST">
+                            @csrf
+                            <div class="form-group d-flex">
+                                <input class="form-control border-dark me-2" type="date" name="from" id="from">
+                                <label for="to"></label>
+                                <input class="form-control border-dark me-2" type="date" name="to" id="to">
+                                <button type="submit" class="btn btn-white"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </div>
+                        </form>
                     </div>
+
                 </div>
 
                 <table class="table data-table gap-5">
@@ -94,5 +112,4 @@
     </script>
     <!-- Include jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 @endsection

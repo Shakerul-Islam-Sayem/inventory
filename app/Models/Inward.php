@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Inward extends Model
 {
     use HasFactory;
-    // Inward.php (Inward model)
     protected $fillable = [
         'inward_id',
         'supplier_id',
@@ -30,6 +30,10 @@ class Inward extends Model
     public function inwarddetails(): HasMany
     {
         return $this->hasMany(Inwarddetail::class);
+    }
+    public function inward(): BelongsTo
+    {
+        return $this->belongsTo(Inward::class);
     }
     public function product()
     {

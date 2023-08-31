@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Inward;
 use App\Http\Requests\StoreInwardRequest;
 use App\Http\Requests\UpdateInwardRequest;
 use App\Models\Category;
+use App\Models\Inward;
 use App\Models\Inwarddetail;
 use App\Models\Product;
 use App\Models\Supplier;
 use GuzzleHttp\Psr7\Request;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Log;
 use Requests;
 
@@ -63,21 +64,15 @@ class InwardController extends Controller
 
             $p = Product::find($product_id);
             $p->quantity = $p->quantity + $id->quantity;
-            $p ->save();
+            $p->save();
             $inward->inwarddetails()->save($id);
         }
         // Inwarddetail::create($productData);
         return redirect()->route('inward.index')->with('success', 'Inward successfully.');
     }
-    public function getInwardDetails(Request $request)
+    public function searchByDate(Request $request)
     {
-        $selectedDate = $request->input('date');
-
-        // Fetch new data based on the selected date
-        $inwarddetails = Inwarddetail::whereDate('created_at', $selectedDate)->get();
-
-        // Return the updated table rows
-        return view('admin.inward.index', compact('inwarddetails'));
+        
     }
 
     public function show(Inward $inward)
