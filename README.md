@@ -105,7 +105,7 @@ yarn
 5. Generate `Vite` serve manifest:
 ###### Using npm:
 ```bash
-npm run build
+npm run dev
 ```
 or,
 ###### using Yarn:

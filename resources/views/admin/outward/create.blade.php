@@ -20,8 +20,8 @@
                                 placeholder="Customer Phone">
                         </div>
                         <div class="col-3">
-                            <input class=" form-control border-dark" type="datetime-local" name="date_received" value="{{ date('Y-m-d\TH:i') }}"
-                                id="">
+                            <input class=" form-control border-dark" type="datetime-local" name="date_received"
+                                value="{{ date('Y-m-d\TH:i') }}" id="">
                         </div>
                     </div>
 
@@ -56,6 +56,7 @@
                                     <th scope="col">Product Title</th>
                                     <th scope="col">Purchase Price</th>
                                     <th scope="col">Salling Price</th>
+                                    <th scope="col">Existing Qty</th>
                                     <th scope="col">Quantity</th>
                                     <th scope="col" class="text-center justify-content-center d-flex">Action</th>
                                 </tr>
@@ -71,13 +72,19 @@
                                         </select>
                                     </td>
                                     <td>
-                                        <input class="form-control purchase-price" type="text" name="purchase_price[]"
+                                        <input class="form-control purchase-price" type="number" name="purchase_price[]"
                                             placeholder="Purchase Price">
                                     </td>
-                                    <td><input class="form-control sale-price" type="text" name="sale_price[]"
+                                    <td>
+                                        <input class="form-control sale-price" type="number" name="sale_price[]"
                                             placeholder="Selling Price">
                                     </td>
-                                    <td><input class="form-control" type="text" name="quantity[]" id="quantity"
+                                    <td>
+                                        <input class="form-control existing-Qty" type="number" name="existing_Qty[]" id="existing_Qty"
+                                            placeholder="Existing Qty">
+                                    </td>
+                                    <td>
+                                        <input class="form-control" type="number" name="quantity[]" id="quantity"
                                             placeholder="Quantity">
                                     </td>
                                     <td class="d-flex">
@@ -127,6 +134,7 @@
                 var tableRow = $(this).closest('.option-row');
                 tableRow.find('.purchase-price').val(selectedItem['purchase_price']);
                 tableRow.find('.sale-price').val(selectedItem['sale_price']);
+                tableRow.find('.existing-Qty').val(selectedItem['quantity']);
             });
             // add new row on click
             var serialNumber = 1; // Initialize the serial number
